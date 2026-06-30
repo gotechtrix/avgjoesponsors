@@ -157,6 +157,15 @@
   .flyer-side h3{font-size:22px;font-weight:900;margin-bottom:7px}
   .flyer-side p{font-size:16.5px;color:var(--muted);margin-bottom:14px}
 
+  /* ---------- EVENT GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:6px}
+  .gallery a{display:block;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:4/3;background:#eee;position:relative}
+  .gallery a.feature{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  @media(max-width:520px){.gallery a.feature{grid-column:span 1;grid-row:span 1;aspect-ratio:4/3}}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .gallery a:hover img{transform:scale(1.06)}
+  .gallery-note{font-size:14px;color:var(--muted);margin-top:12px;text-align:center}
+
   /* ---------- MISC ---------- */
   .note{font-size:14px;color:var(--muted);margin-top:10px}
   footer{text-align:center;color:var(--muted);font-size:15.5px;margin-top:50px;line-height:1.7}
@@ -257,10 +266,11 @@
     <p class="sub">Everything you need to fill the room, Colby — in three simple steps. Grab the flyer, post the scripts, send the personal invites.</p>
     <a class="hero-cta" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Open the registration page</a>
     <div class="quicknav">
-      <a href="#why">Why it works</a>
-      <a href="#flyer">1 · Grab the flyer</a>
-      <a href="#plan">2 · Post on social</a>
-      <a href="#texts">3 · Texts &amp; emails</a>
+      <a href="#why">💡 Why it works</a>
+      <a href="#flyer">🖼️ 1 · Grab the flyer</a>
+      <a href="#plan">📣 2 · Post on social</a>
+      <a href="#texts">✉️ 3 · Texts &amp; emails</a>
+      <a href="#vibe">📸 Event photos</a>
     </div>
   </div>
 </div>
@@ -285,7 +295,7 @@
   <!-- STEP 1 — FLYER (beginning) -->
   <section class="section" id="flyer">
     <div class="section-head"><span class="num">1</span><h2><span class="step-label">Step 1</span>Grab your flyer</h2></div>
-    <p class="section-sub">Start here. Download the flyer and keep it handy — attach it to every post, text, and email below. Visuals get far more engagement.</p>
+    <p class="section-sub">👉 Start here. Download the flyer and keep it handy — attach it to every post, text, and email below. Visuals get far more engagement.</p>
     <div class="flyer-wrap">
       <div class="flyer-img">
         <img id="flyerImg"
@@ -308,7 +318,7 @@
   <!-- STEP 2 — PLAN -->
   <section class="section" id="plan">
     <div class="section-head"><span class="num">2</span><h2><span class="step-label">Step 2</span>Post on social</h2></div>
-    <p class="section-sub">Tap any card to open the script. Hit <b>Copy</b>, then use the colored buttons to jump straight to LinkedIn, Facebook, or Instagram with your text on the clipboard — just paste, attach the flyer &amp; post.</p>
+    <p class="section-sub">👆 Tap any card to open the script. Hit <b>Copy</b>, then use the colored buttons to jump straight to LinkedIn, Facebook, or Instagram with your text on the clipboard — just paste, attach the flyer &amp; post.</p>
 
     <div class="timeline">
 
@@ -319,7 +329,7 @@
           <div class="card-top" onclick="toggle(this)">
             <div class="when"><div class="d">Jul 9</div><div class="m">~2 wks out</div></div>
             <div class="card-meta">
-              <div class="tag">Social post</div>
+              <div class="tag">📣 Social post</div>
               <h3>Put it on the radar</h3>
               <p>First awareness post. Plant the seed early.</p>
             </div>
@@ -371,7 +381,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when"><div class="d">Jul 20</div><div class="m">Week of</div></div>
             <div class="card-meta">
-              <div class="tag">Social post</div>
+              <div class="tag">📣 Social post</div>
               <h3>"This week" reminder</h3>
               <p>Build urgency as the date gets close.</p>
             </div>
@@ -422,7 +432,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when"><div class="d">Jul 22</div><div class="m">Day before</div></div>
             <div class="card-meta">
-              <div class="tag">Social post</div>
+              <div class="tag">📣 Social post</div>
               <h3>"Tomorrow!" last call</h3>
               <p>Final public nudge before the doors open.</p>
             </div>
@@ -474,7 +484,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when"><div class="d">Jul 23</div><div class="m">Day of</div></div>
             <div class="card-meta">
-              <div class="tag">Morning post + final texts</div>
+              <div class="tag">🌅 Morning post + final texts</div>
               <h3>"It's today" + last-minute texts</h3>
               <p>Post this morning, then text anyone on the fence.</p>
             </div>
@@ -511,7 +521,7 @@ If you've been meaning to come, this is your sign. See you there. 🙌</div>
   <!-- STEP 3 — TEXTS & EMAILS -->
   <section class="section" id="texts">
     <div class="section-head"><span class="num">3</span><h2><span class="step-label">Step 3</span>Send personal texts &amp; emails</h2></div>
-    <p class="section-sub">This is where seats get filled. Send these <b>one-to-one</b> to people you know — on mobile, the green button opens your Messages app pre-filled. Start ~10 days out and follow up with anyone who didn't reply.</p>
+    <p class="section-sub">🎯 This is where seats get filled. Send these <b>one-to-one</b> to people you know — on mobile, the green button opens your Messages app pre-filled. Start ~10 days out and follow up with anyone who didn't reply.</p>
 
     <div class="timeline">
 
@@ -522,7 +532,7 @@ If you've been meaning to come, this is your sign. See you there. 🙌</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">💬</div><div class="m">Text</div></div>
             <div class="card-meta">
-              <div class="tag">Text invite · short</div>
+              <div class="tag">💬 Text invite · short</div>
               <h3>Quick personal invite</h3>
               <p>For warm contacts. Fast and casual.</p>
             </div>
@@ -553,7 +563,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">💬</div><div class="m">Text</div></div>
             <div class="card-meta">
-              <div class="tag">Text invite · long</div>
+              <div class="tag">💬 Text invite · long</div>
               <h3>Fuller personal invite</h3>
               <p>When you want to give a bit more context.</p>
             </div>
@@ -584,7 +594,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">↻</div><div class="m">Follow up</div></div>
             <div class="card-meta">
-              <div class="tag">Text follow-up</div>
+              <div class="tag">🔁 Text follow-up</div>
               <h3>Bump for non-repliers</h3>
               <p>Send to anyone who didn't reply the first time.</p>
             </div>
@@ -615,7 +625,7 @@ https://luma.com/g86uye1u</div>
           <div class="card-top" onclick="toggle(this)">
             <div class="when" style="background:#c25b18"><div class="d" style="color:#fff">✉️</div><div class="m">Email</div></div>
             <div class="card-meta">
-              <div class="tag">Email invite</div>
+              <div class="tag">✉️ Email invite</div>
               <h3>The full written invite</h3>
               <p>For your broader list and pro contacts.</p>
             </div>
@@ -684,6 +694,22 @@ New York Life</div>
         <p class="note">Tip: posts and texts with the flyer attached get noticed far more than text alone.</p>
       </div>
     </div>
+  </section>
+
+  <!-- EVENT VIBE GALLERY -->
+  <section class="section" id="vibe">
+    <div class="section-head"><span class="num">📸</span><h2>What the room feels like</h2></div>
+    <p class="section-sub">A look at a past Secret Sauce lunch — real local owners, real conversations, real food. This is the vibe you're inviting people into. Tap any photo to enlarge.</p>
+    <div class="gallery">
+      <a class="feature" href="SecretSauceJuly20250003.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250003.jpg" alt="The Secret Sauce masterclass in session" loading="lazy"></a>
+      <a href="SecretSauceJuly20250006.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250006.jpg" alt="Business owners at The Secret Sauce" loading="lazy"></a>
+      <a href="SecretSauceJuly20250016.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250016.jpg" alt="Networking at The Secret Sauce" loading="lazy"></a>
+      <a href="FPD01149.jpg" target="_blank" rel="noopener"><img src="FPD01149.jpg" alt="The Secret Sauce event" loading="lazy"></a>
+      <a href="FPD01167.jpg" target="_blank" rel="noopener"><img src="FPD01167.jpg" alt="The Secret Sauce event" loading="lazy"></a>
+      <a href="SecretSauceJuly20250017.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250017.jpg" alt="Attendees at The Secret Sauce" loading="lazy"></a>
+      <a href="SecretSauceJuly20250031.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250031.jpg" alt="The Secret Sauce lunch" loading="lazy"></a>
+    </div>
+    <p class="gallery-note">📎 Feel free to drop one of these into a post or text — nothing sells the room like seeing it full.</p>
   </section>
 
   <footer>
