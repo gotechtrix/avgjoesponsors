@@ -33,6 +33,10 @@
   .card h3{font-size:22px;font-weight:900;margin-top:2px}
   .card .co{font-size:15px;color:var(--muted);margin-top:2px}
   .card .meta{margin-top:14px;font-size:14px;font-weight:700;color:var(--maroon);display:flex;align-items:center;gap:8px}
+  .card.has-thumb{display:flex;gap:16px;align-items:center}
+  .card .thumb{flex:0 0 auto;width:92px;height:92px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6eede}
+  .card .cbody{flex:1 1 auto;min-width:0}
+  @media(max-width:560px){.card .thumb{width:74px;height:74px}}
   .pill{display:inline-block;background:#fdebcb;color:#9a6a12;border-radius:20px;padding:3px 10px;font-size:12.5px;font-weight:800}
   footer{text-align:center;color:var(--muted);font-size:14.5px;margin-top:48px;line-height:1.8}
   footer a{color:var(--maroon);font-weight:700}
@@ -49,21 +53,27 @@
   <div class="wrap">
     <div class="lead"><h2>Our sponsors</h2><span class="rule"></span></div>
     <div class="grid">
-      <a class="card" href="/colbybell/">
-        <div class="lbl">★ Sponsor</div>
-        <h3>Colby Bell</h3>
-        <div class="co">New York Life</div>
-        <div class="meta"><span class="pill">1 event</span> View promo kits →</div>
+      <a class="card has-thumb" href="/colbybell/">
+        <img class="thumb" src="/logo.svg" alt="The Average Joe's MBA">
+        <div class="cbody">
+          <div class="lbl">★ Sponsor</div>
+          <h3>Colby Bell</h3>
+          <div class="co">New York Life</div>
+          <div class="meta"><span class="pill">1 event</span> View promo kits →</div>
+        </div>
       </a>
     </div>
 
     <div class="lead"><h2>Upcoming events</h2><span class="rule"></span></div>
     <div class="grid">
-      <a class="card" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
-        <div class="lbl">🗓️ Thu, July 23, 2026 · Elk Grove, CA</div>
-        <h3>The Secret Sauce</h3>
-        <div class="co">A live, in-person business masterclass · Sponsored by Colby Bell</div>
-        <div class="meta">Open the promo kit →</div>
+      <a class="card has-thumb" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
+        <img class="thumb" src="/colbybell/secret-sauce-elk-grove-july-23-2026/secret-sauce-flyer.png" alt="The Secret Sauce flyer">
+        <div class="cbody">
+          <div class="lbl">🗓️ Thu, July 23, 2026 · Elk Grove, CA</div>
+          <h3>The Secret Sauce</h3>
+          <div class="co">A live, in-person business masterclass · Sponsored by Colby Bell</div>
+          <div class="meta">Open the promo kit →</div>
+        </div>
       </a>
     </div>
 

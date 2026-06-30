@@ -35,6 +35,10 @@
   .card h3{font-size:23px;font-weight:900;margin-top:2px}
   .card .co{font-size:15px;color:var(--muted);margin-top:3px}
   .card .meta{margin-top:14px;font-size:14.5px;font-weight:700;color:var(--maroon)}
+  .card.has-thumb{display:flex;gap:16px;align-items:center}
+  .card .thumb{flex:0 0 auto;width:96px;height:96px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6eede}
+  .card .cbody{flex:1 1 auto;min-width:0}
+  @media(max-width:560px){.card .thumb{width:76px;height:76px}}
   footer{text-align:center;color:var(--muted);font-size:14.5px;margin-top:46px;line-height:1.8}
   footer a{color:var(--maroon);font-weight:700}
   @media(max-width:560px){header img{width:88px;height:88px}.wrap{padding:0 14px 56px}}
@@ -53,11 +57,14 @@
 
   <div class="wrap">
     <div class="lead"><h2>Sponsored events</h2><span class="rule"></span></div>
-    <a class="card" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
-      <div class="lbl">🗓️ Thursday, July 23, 2026 · Elk Grove, CA</div>
-      <h3>The Secret Sauce</h3>
-      <div class="co">A live, in-person rapid-fire business masterclass. $25, lunch included. Doors 11:30 AM, talk at noon.</div>
-      <div class="meta">Open the promo kit →</div>
+    <a class="card has-thumb" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
+      <img class="thumb" src="/colbybell/secret-sauce-elk-grove-july-23-2026/secret-sauce-flyer.png" alt="The Secret Sauce flyer">
+      <div class="cbody">
+        <div class="lbl">🗓️ Thursday, July 23, 2026 · Elk Grove, CA</div>
+        <h3>The Secret Sauce</h3>
+        <div class="co">A live, in-person rapid-fire business masterclass. $25, lunch included. Doors 11:30 AM, talk at noon.</div>
+        <div class="meta">Open the promo kit →</div>
+      </div>
     </a>
 
     <footer>
