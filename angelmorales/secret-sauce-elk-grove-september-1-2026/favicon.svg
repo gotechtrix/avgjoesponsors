@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Announcement megaphone">
+  <rect width="64" height="64" rx="13" fill="#F4A41C"/>
+  <g fill="#7B2B2A">
+    <rect x="11.5" y="27" width="9.5" height="12" rx="2.6"/>
+    <path d="M21 27.5 L44 17 q3 -1.4 3 2 V45 q0 3.4 -3 2 L21 38.5 Z"/>
+  </g>
+  <g fill="none" stroke="#7B2B2A" stroke-width="3.2" stroke-linecap="round">
+    <path d="M50.5 26 a8 8 0 0 1 0 12"/>
+    <path d="M55 22 a13 13 0 0 1 0 20"/>
+  </g>
+</svg>
