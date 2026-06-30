@@ -244,13 +244,7 @@
       <p>This event is brought to the local business community through Colby's sponsorship — a chance to deliver real value to his network. Help him pack the room.</p>
     </div>
     <div class="nyl" title="New York Life">
-      <!-- New York Life logo (recreated, self-contained) -->
-      <svg class="nyl-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="New York Life">
-        <rect width="100" height="100" rx="14" fill="#1683C4"/>
-        <text x="50" y="33" text-anchor="middle" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="23" letter-spacing="-1">NEW</text>
-        <text x="50" y="58" text-anchor="middle" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="23" letter-spacing="-1">YORK</text>
-        <text x="50" y="83" text-anchor="middle" fill="#fff" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="23" letter-spacing="-1">LIFE</text>
-      </svg>
+      <img class="nyl-logo" src="nyl-logo.jpg" alt="New York Life">
     </div>
   </div>
 </div>
@@ -657,8 +651,8 @@ New York Life</div>
     <p class="section-sub">Attach this to your posts, texts, and emails — visuals get far more engagement. Download it, or copy it straight to your clipboard.</p>
     <div class="flyer-wrap">
       <div class="flyer-img">
-        <img id="flyerImg" crossorigin="anonymous"
-             src="https://images.lumacdn.com/uploads/7k/c30d7c4c-71c0-4d8d-941e-14c08c9d88c8.png"
+        <img id="flyerImg"
+             src="secret-sauce-flyer.png"
              alt="The Secret Sauce event flyer">
       </div>
       <div class="flyer-side">
@@ -667,7 +661,7 @@ New York Life</div>
         <div class="actions">
           <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
           <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
-          <a class="btn btn-ghost" href="https://images.lumacdn.com/uploads/7k/c30d7c4c-71c0-4d8d-941e-14c08c9d88c8.png" target="_blank" rel="noopener">🔍 Open full size</a>
+          <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
         </div>
         <p class="note">If the download button doesn't trigger on your browser, click "Open full size," then right-click (or press &amp; hold on mobile) → Save Image.</p>
       </div>
@@ -732,7 +726,7 @@ New York Life</div>
     return false;
   }
 
-  var FLYER_URL='https://images.lumacdn.com/uploads/7k/c30d7c4c-71c0-4d8d-941e-14c08c9d88c8.png';
+  var FLYER_URL='secret-sauce-flyer.png';
   function downloadFlyer(btn){
     showToast('Preparing download…');
     fetch(FLYER_URL,{mode:'cors'}).then(function(r){return r.blob()}).then(function(blob){
