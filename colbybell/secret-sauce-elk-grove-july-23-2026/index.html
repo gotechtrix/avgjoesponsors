@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Secret Sauce — Promo Kit for Colby</title>
+<title>The Secret Sauce: Promo Kit for Colby</title>
 <style>
   :root{
     --gold:#F8CF2C;
@@ -26,17 +26,29 @@
   }
   .wrap{max-width:920px;margin:0 auto;padding:0 18px 70px}
 
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    *{animation:none !important}
+  }
+
   /* ---------- HERO (tightened) ---------- */
   .hero{
     background:var(--ink-soft);
     color:#fff;border-radius:0 0 26px 26px;
     padding:24px 26px 24px;text-align:center;position:relative;overflow:hidden;
+    animation:fadeUp .55s ease .08s both;
   }
   .hero:before{
     content:"";position:absolute;inset:0;
     background:radial-gradient(circle at 80% -10%, rgba(248,207,44,.22), transparent 55%);
   }
-  .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+  .hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
   .kicker{
     display:inline-block;background:var(--gold);color:#1a1a1a;font-weight:800;
     letter-spacing:.5px;font-size:13.5px;text-transform:uppercase;
@@ -44,28 +56,18 @@
   }
   .hero h1{font-size:clamp(34px,7vw,54px);line-height:1.02;font-weight:900;letter-spacing:-1px}
   .hero h1 .y{color:var(--gold)}
-  .hero p.sub{color:#e3e3e3;margin-top:9px;font-size:18.5px;max-width:640px;margin-left:auto;margin-right:auto}
-  .facts{
-    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px;
-  }
-  .fact{
-    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
-    border-radius:12px;padding:11px 15px;font-size:15px;text-align:left;
-    display:flex;gap:10px;align-items:center;min-width:0;
-  }
-  .fact b{display:block;font-size:15.5px;color:#fff;font-weight:700}
-  .fact span{color:#c6c6c6;font-size:13.5px}
-  .fact .em{font-size:22px}
+  .hero p.sub{color:#e3e3e3;margin-top:9px;font-size:18.5px;max-width:660px;margin-left:auto;margin-right:auto}
   .hero-cta{
     display:inline-flex;align-items:center;gap:8px;margin-top:16px;
     background:var(--gold);color:#1a1a1a;font-weight:800;text-decoration:none;
     padding:14px 28px;border-radius:30px;font-size:17.5px;box-shadow:var(--shadow);
-    transition:transform .12s ease;
+    transition:transform .14s ease,box-shadow .14s ease;
   }
-  .hero-cta:hover{transform:translateY(-2px)}
-  .quicknav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-  .quicknav a{font-size:14.5px;font-weight:700;color:#d6d6d6;text-decoration:none;border:1px solid rgba(255,255,255,.20);padding:7px 14px;border-radius:20px}
-  .quicknav a:hover{background:rgba(255,255,255,.08);color:#fff}
+  .hero-cta:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+  .quicknav{display:flex;gap:9px;flex-wrap:nowrap;justify-content:center;margin-top:16px;overflow-x:auto;padding:2px 2px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .quicknav::-webkit-scrollbar{display:none}
+  .quicknav a{flex:0 0 auto;white-space:nowrap;font-size:14.5px;font-weight:700;color:#d6d6d6;text-decoration:none;border:1px solid rgba(255,255,255,.20);padding:8px 15px;border-radius:20px;transition:background .15s ease,color .15s ease,transform .15s ease}
+  .quicknav a:hover{background:rgba(255,255,255,.10);color:#fff;transform:translateY(-2px)}
 
   /* ---------- SECTION ---------- */
   .section{margin-top:44px}
@@ -74,7 +76,9 @@
   .section-head .num{
     background:var(--ink);color:var(--gold);width:42px;height:42px;border-radius:11px;
     display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;flex:0 0 auto;
+    transition:transform .2s ease;
   }
+  .section:hover .section-head .num{transform:rotate(-5deg) scale(1.06)}
   .step-label{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold-dark);display:block;margin-bottom:1px}
   .section-sub{color:var(--muted);font-size:17px;margin:4px 0 18px 56px}
   @media(max-width:560px){.section-sub{margin-left:0}}
@@ -88,7 +92,8 @@
   .why p{font-size:17px;color:#5a5028;margin-bottom:11px}
   .why .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
   @media(max-width:560px){.why .pillars{grid-template-columns:1fr}}
-  .pillar{background:rgba(255,255,255,.7);border-radius:12px;padding:14px 15px}
+  .pillar{background:rgba(255,255,255,.7);border-radius:12px;padding:14px 15px;transition:transform .18s ease,box-shadow .18s ease}
+  .pillar:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
   .pillar .em{font-size:26px}
   .pillar b{display:block;margin-top:5px;font-size:16.5px}
   .pillar small{color:#766a3a;font-size:14.5px;line-height:1.45;display:block;margin-top:3px}
@@ -98,32 +103,39 @@
   .timeline:before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
   .step{position:relative;margin-bottom:14px}
   .dot{position:absolute;left:-34px;top:18px;width:24px;height:24px;border-radius:50%;
-    background:var(--gold);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--gold);z-index:1}
+    background:var(--gold);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--gold);z-index:1;transition:transform .2s ease}
+  .step.open .dot{transform:scale(1.15)}
   .card{
     background:var(--card);border:1px solid var(--line);border-radius:16px;
-    box-shadow:var(--shadow);overflow:hidden;
+    box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease;
   }
+  .card:hover{transform:translateY(-2px);box-shadow:0 9px 26px rgba(0,0,0,.10);border-color:#e2e2e2}
   .card-top{padding:16px 18px 14px;cursor:pointer;display:flex;align-items:center;gap:14px}
   .card-top:hover{background:#fcfcfa}
   .when{
     flex:0 0 auto;text-align:center;background:var(--ink-soft);color:#fff;border-radius:10px;
     padding:9px 11px;min-width:84px;
   }
+  .when.send{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+  .when.send:hover{transform:translateY(-2px);filter:brightness(1.1)}
+  .when.send .tap{display:block;font-size:9.5px;letter-spacing:.4px;color:rgba(255,255,255,.85);margin-top:3px;text-transform:uppercase}
   .when .d{font-size:21px;font-weight:900;line-height:1;color:var(--gold)}
   .when .m{font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;color:#cfcfcf}
   .card-meta{flex:1 1 auto;min-width:0}
   .card-meta .tag{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--gold-dark)}
   .card-meta h3{font-size:19.5px;font-weight:800;line-height:1.2}
   .card-meta p{font-size:15px;color:var(--muted);margin-top:3px}
-  .chev{flex:0 0 auto;color:#bbb;font-size:24px;transition:transform .2s ease}
+  .chev{flex:0 0 auto;color:#bbb;font-size:24px;transition:transform .25s ease}
   .step.open .chev{transform:rotate(90deg)}
   .card-body{display:none;padding:0 18px 18px;border-top:1px solid var(--line)}
-  .step.open .card-body{display:block}
+  .step.open .card-body{display:block;animation:fadeIn .3s ease}
 
   .channel-pill{display:inline-block;font-size:13.5px;font-weight:700;border-radius:20px;padding:4px 11px;margin:13px 8px 4px 0;border:1px solid var(--line);color:#555}
   .channel-pill.post{background:#eef6ff;border-color:#cfe6ff;color:#1664c0}
   .channel-pill.text{background:#eafaf0;border-color:#c4ecd3;color:#137a44}
   .channel-pill.email{background:#fff1e8;border-color:#ffd9c2;color:#c25b18}
+  .channel-pill.clickable{cursor:pointer;transition:transform .14s ease,filter .14s ease,box-shadow .14s ease}
+  .channel-pill.clickable:hover{transform:translateY(-1px);filter:brightness(.98);box-shadow:0 3px 9px rgba(0,0,0,.08)}
 
   .script{
     background:#fafaf7;border:1px solid var(--line);border-radius:12px;
@@ -133,25 +145,36 @@
   .btn{
     display:inline-flex;align-items:center;gap:7px;border:none;cursor:pointer;
     font-size:15.5px;font-weight:700;border-radius:9px;padding:11px 17px;text-decoration:none;
-    transition:transform .1s ease,filter .15s ease;
+    transition:transform .12s ease,filter .15s ease,box-shadow .15s ease;
   }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.12)}
   .btn:active{transform:scale(.97)}
   .btn-copy{background:var(--ink);color:#fff}
   .btn-copy.copied{background:var(--green)}
   .btn-ghost{background:#fff;border:1px solid var(--line);color:#333}
   .btn-ghost:hover{filter:brightness(.97)}
+  .btn-send{background:var(--green);color:#fff}
   .btn .ic{width:16px;height:16px;display:inline-block;vertical-align:middle}
   .share-row{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
   .share-row .lbl{font-size:14.5px;color:var(--muted);font-weight:700;margin-right:2px}
   .sbtn{width:42px;height:42px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;
-    text-decoration:none;border:1px solid var(--line);background:#fff;font-weight:800;font-size:15px;color:#fff}
-  .sbtn:hover{transform:translateY(-2px)}
+    text-decoration:none;border:1px solid var(--line);background:#fff;font-weight:800;font-size:15px;color:#fff;transition:transform .15s ease,box-shadow .15s ease}
+  .sbtn:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
   .sb-li{background:#0a66c2}.sb-fb{background:#1877f2}.sb-ig{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
   .sb-em{background:#555}.sb-sms{background:#1f9d57}
 
+  /* ---------- BIG-LIST HOW-TO ---------- */
+  .howto{margin-top:14px;background:#f3f8ff;border:1px solid #d6e6ff;border-radius:13px;padding:15px 17px;font-size:15.5px;color:#33414f}
+  .howto b.h{display:flex;align-items:center;gap:8px;font-size:16px;margin-bottom:9px;color:#16202b}
+  .howto ul{list-style:none;margin:0;padding:0}
+  .howto li{margin:8px 0;line-height:1.5}
+  .howto li .k{font-weight:800;color:#16202b}
+  .howto a{color:#1664c0;font-weight:700}
+
   /* ---------- FLYER ---------- */
   .flyer-wrap{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-  .flyer-img{flex:0 0 260px;max-width:260px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff}
+  .flyer-img{flex:0 0 260px;max-width:260px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;transition:transform .25s ease,box-shadow .25s ease}
+  .flyer-img:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.14)}
   .flyer-img img{width:100%;display:block}
   .flyer-side{flex:1 1 320px;min-width:260px}
   .flyer-side h3{font-size:22px;font-weight:900;margin-bottom:7px}
@@ -164,7 +187,7 @@
   @media(max-width:520px){.gallery a.feature{grid-column:span 1;grid-row:span 1;aspect-ratio:4/3}}
   .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
   .gallery a:hover img{transform:scale(1.06)}
-  .gallery-note{font-size:14px;color:var(--muted);margin-top:12px;text-align:center}
+  .gallery-note{font-size:14px;color:var(--muted);margin-top:6px;text-align:center}
 
   /* ---------- MISC ---------- */
   .note{font-size:14px;color:var(--muted);margin-top:10px}
@@ -177,7 +200,7 @@
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   /* ---------- TOP BANNER ---------- */
-  .banner-strip{max-width:920px;margin:18px auto 0;padding:0 18px}
+  .banner-strip{max-width:920px;margin:18px auto 0;padding:0 18px;animation:fadeUp .5s ease both}
   .banner{width:100%;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:3px solid var(--ink);display:block;line-height:0}
   .banner img{width:100%;display:block}
   .banner-fallback{display:none;background:var(--gold);color:#111;padding:30px 26px;text-align:left;font-weight:900}
@@ -188,33 +211,35 @@
 
   /* ---------- SPONSOR FEATURE ---------- */
   .sponsor{
-    max-width:920px;margin:16px auto 0;padding:0 18px;
+    max-width:920px;margin:16px auto 0;padding:0 18px;animation:fadeUp .5s ease .04s both;
   }
   .sponsor-card{
     background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
-    display:flex;align-items:center;gap:20px;padding:20px 24px;position:relative;overflow:hidden;
+    display:flex;align-items:center;gap:22px;padding:22px 26px;position:relative;overflow:hidden;
   }
   .sponsor-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--gold)}
   .headshot{
-    flex:0 0 auto;width:104px;height:104px;border-radius:50%;object-fit:cover;
-    border:3px solid var(--gold);box-shadow:0 3px 10px rgba(0,0,0,.15);background:#eee;
+    flex:0 0 auto;width:134px;height:134px;border-radius:50%;object-fit:cover;
+    border:4px solid var(--gold);box-shadow:0 4px 14px rgba(0,0,0,.18);background:#eee;
   }
   .headshot-ph{
-    flex:0 0 auto;width:104px;height:104px;border-radius:50%;
-    border:3px solid var(--gold);background:linear-gradient(135deg,#1a1a1a,#3a3a3a);color:var(--gold);
-    display:none;align-items:center;justify-content:center;text-align:center;font-size:38px;font-weight:900;letter-spacing:1px;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    flex:0 0 auto;width:134px;height:134px;border-radius:50%;
+    border:4px solid var(--gold);background:linear-gradient(135deg,#1a1a1a,#3a3a3a);color:var(--gold);
+    display:none;align-items:center;justify-content:center;text-align:center;font-size:46px;font-weight:900;letter-spacing:1px;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);
   }
   .sponsor-info{flex:1 1 auto;min-width:0}
   .sponsor-info .lbl{font-size:13.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold-dark)}
-  .sponsor-info h3{font-size:26px;font-weight:900;letter-spacing:-.3px;margin-top:1px}
+  .sponsor-info h3{font-size:27px;font-weight:900;letter-spacing:-.3px;margin-top:1px}
   .sponsor-info p{font-size:16px;color:var(--muted);margin-top:4px;max-width:520px}
-  .nyl{flex:0 0 auto}
-  .nyl-logo{width:84px;height:84px;border-radius:12px;display:block;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .nyl{flex:0 0 auto;text-align:center}
+  .nyl-logo{width:96px;height:96px;border-radius:12px;display:block;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .nyl .cap{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:6px;letter-spacing:.3px}
   @media(max-width:560px){
-    .sponsor-card{flex-wrap:wrap;gap:14px}
+    .sponsor-card{flex-wrap:wrap;gap:16px;justify-content:center;text-align:center}
     .nyl{order:2}
     .sponsor-info{flex:1 1 100%;order:3}
+    .sponsor-info p{margin-left:auto;margin-right:auto}
   }
 
   /* Instagram glyph */
@@ -226,7 +251,7 @@
 <!-- ===== TOP BANNER ===== -->
 <div class="banner-strip">
   <div class="banner">
-    <img id="bannerImg" src="event-banner.png" alt="The Average Joe's MBA — The Secret Sauce — In-Person Masterclass — Thu, July 23 @ 11:30 AM — Elk Grove, CA"
+    <img id="bannerImg" src="event-banner.png" alt="The Average Joe's MBA. The Secret Sauce. In-Person Masterclass. Thursday, July 23 at 11:30 AM. Elk Grove, CA."
          onerror="document.getElementById('bannerImg').style.display='none';document.getElementById('bannerFallback').style.display='block';">
     <div class="banner-fallback" id="bannerFallback">
       <div class="bf-row">
@@ -251,10 +276,11 @@
     <div class="sponsor-info">
       <div class="lbl">★ Proudly sponsored by</div>
       <h3>Colby Bell</h3>
-      <p>This event is brought to the local business community through Colby's sponsorship — a chance to deliver real value to his network. Help him pack the room.</p>
+      <p>This event is brought to the local business community through Colby's sponsorship, a chance to deliver real value to his network. Help him pack the room.</p>
     </div>
     <div class="nyl" title="New York Life">
       <img class="nyl-logo" src="nyl-logo.jpg" alt="New York Life">
+      <span class="cap">New York Life</span>
     </div>
   </div>
 </div>
@@ -263,13 +289,13 @@
   <div class="hero-inner">
     <span class="kicker">Your Sponsor Promo Kit</span>
     <h1>THE <span class="y">SECRET SAUCE</span></h1>
-    <p class="sub">Everything you need to fill the room, Colby — in three simple steps. Grab the flyer, post the scripts, send the personal invites.</p>
-    <a class="hero-cta" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Open the registration page</a>
+    <p class="sub">Everything you need to fill the room, Colby, in three simple steps: grab the flyer, post the scripts, and send the personal invites.</p>
+    <a class="hero-cta" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🎟️ Open the registration page</a>
     <div class="quicknav">
       <a href="#why">💡 Why it works</a>
       <a href="#flyer">🖼️ 1 · Grab the flyer</a>
       <a href="#plan">📣 2 · Post on social</a>
-      <a href="#texts">✉️ 3 · Texts &amp; emails</a>
+      <a href="#texts">✉️ 3 · Emails &amp; texts</a>
       <a href="#vibe">📸 Event photos</a>
     </div>
   </div>
@@ -278,24 +304,24 @@
 <div class="wrap">
 
   <!-- WHY -->
-  <section class="section" id="why">
+  <section class="section reveal" id="why">
     <div class="section-head"><span class="num">★</span><h2>Why this works: it's personal</h2></div>
     <div class="why">
       <h3>📣 Posts fill seats. People fill rooms.</h3>
-      <p>Social posts create awareness, but the registrations almost always come from a <b>direct, personal touch</b>. A public post is easy to scroll past. A text with someone's name on it is not. The sponsors who pack the room are the ones who personally reach out to 20–40 people they actually know.</p>
-      <p style="margin-bottom:0">Treat this as a chance to <b>add value to your network</b> — you're handing them a genuinely useful business lunch, not asking for a favor. Aim for this mix:</p>
+      <p>Social posts create awareness, but the registrations almost always come from a <b>direct, personal touch</b>. A public post is easy to scroll past. A text with someone's name on it is not. The sponsors who pack the room are the ones who personally reach out to 20 to 40 people they actually know.</p>
+      <p style="margin-bottom:0">Treat this as a chance to <b>add value to your network</b>. You're handing them a genuinely useful business lunch, not asking for a favor. Aim for this mix:</p>
       <div class="pillars">
-        <div class="pillar"><span class="em">📞</span><b>Phone calls</b><small>Highest conversion. Call your 10–15 best relationships personally. 60 seconds: "I'm sponsoring this, I'd love for you to be my guest."</small></div>
-        <div class="pillar"><span class="em">💬</span><b>Texts</b><small>The workhorse. Personal, hard to ignore, easy to reply. Send the templates below one-to-one — never as a mass blast.</small></div>
+        <div class="pillar"><span class="em">📞</span><b>Phone calls</b><small>Highest conversion. Call your 10 to 15 best relationships personally. 60 seconds: "I'm sponsoring this, I'd love for you to be my guest."</small></div>
+        <div class="pillar"><span class="em">💬</span><b>Texts</b><small>The workhorse. Personal, hard to ignore, easy to reply. Send the templates below one-to-one, never as a mass blast.</small></div>
         <div class="pillar"><span class="em">✉️</span><b>Emails</b><small>Great for a broader list and people you reach professionally. Send it and follow up.</small></div>
       </div>
     </div>
   </section>
 
-  <!-- STEP 1 — FLYER (beginning) -->
-  <section class="section" id="flyer">
+  <!-- STEP 1: FLYER (beginning) -->
+  <section class="section reveal" id="flyer">
     <div class="section-head"><span class="num">1</span><h2><span class="step-label">Step 1</span>Grab your flyer</h2></div>
-    <p class="section-sub">👉 Start here. Download the flyer and keep it handy — attach it to every post, text, and email below. Visuals get far more engagement.</p>
+    <p class="section-sub">👉 Start here. Download the flyer and keep it handy, then attach it to every post, text, and email below. Visuals get far more engagement.</p>
     <div class="flyer-wrap">
       <div class="flyer-img">
         <img id="flyerImg"
@@ -303,22 +329,22 @@
              alt="The Secret Sauce event flyer">
       </div>
       <div class="flyer-side">
-        <h3>The Secret Sauce — official flyer</h3>
-        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text/email attachment.</p>
+        <h3>The official Secret Sauce flyer</h3>
+        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text or email attachment.</p>
         <div class="actions">
           <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
           <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
           <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
         </div>
-        <p class="note">If the download button doesn't trigger on your browser, click "Open full size," then right-click (or press &amp; hold on mobile) → Save Image.</p>
+        <p class="note">If the download button doesn't trigger on your browser, click "Open full size," then right-click (or press &amp; hold on mobile) and choose Save Image.</p>
       </div>
     </div>
   </section>
 
-  <!-- STEP 2 — PLAN -->
-  <section class="section" id="plan">
+  <!-- STEP 2: PLAN -->
+  <section class="section reveal" id="plan">
     <div class="section-head"><span class="num">2</span><h2><span class="step-label">Step 2</span>Post on social</h2></div>
-    <p class="section-sub">👆 Tap any card to open the script. Hit <b>Copy</b>, then use the colored buttons to jump straight to LinkedIn, Facebook, or Instagram with your text on the clipboard — just paste, attach the flyer &amp; post.</p>
+    <p class="section-sub">👆 Tap any card to open the script. Hit <b>Copy</b>, then use the colored buttons to jump straight to LinkedIn, Facebook, or Instagram with your text on the clipboard. Just paste, attach the flyer, and post.</p>
 
     <div class="timeline">
 
@@ -327,7 +353,7 @@
         <div class="dot"></div>
         <div class="card">
           <div class="card-top" onclick="toggle(this)">
-            <div class="when"><div class="d">Jul 9</div><div class="m">~2 wks out</div></div>
+            <div class="when"><div class="d">Jul 9</div><div class="m">2 wks out</div></div>
             <div class="card-meta">
               <div class="tag">📣 Social post</div>
               <h3>Put it on the radar</h3>
@@ -359,10 +385,10 @@ Details:
 If you own a business, work with business owners, or know someone trying to grow, I'd love to see you there.
 
 Grab your spot here:
-https://luma.com/g86uye1u</div>
+🎟️ https://luma.com/g86uye1u</div>
             <div class="actions">
               <button class="btn btn-copy" onclick="copyText('s1',this)">📋 Copy script</button>
-              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Reg. link</a>
+              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🎟️ Reg. link</a>
             </div>
             <div class="share-row" data-script="s1">
               <span class="lbl">Post to:</span>
@@ -410,10 +436,10 @@ Brandon and Chris from The Average Joe's MBA will be sharing practical lessons f
 🤝 Open networking after
 
 Seats are limited, so grab yours here:
-https://luma.com/g86uye1u</div>
+🎟️ https://luma.com/g86uye1u</div>
             <div class="actions">
               <button class="btn btn-copy" onclick="copyText('s2',this)">📋 Copy script</button>
-              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Reg. link</a>
+              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🎟️ Reg. link</a>
             </div>
             <div class="share-row" data-script="s2">
               <span class="lbl">Post to:</span>
@@ -462,10 +488,10 @@ Details:
 If you own a business, work with business owners, or know someone who could use a practical boost, come hang out with us.
 
 Grab your spot here:
-https://luma.com/g86uye1u</div>
+🎟️ https://luma.com/g86uye1u</div>
             <div class="actions">
               <button class="btn btn-copy" onclick="copyText('s3',this)">📋 Copy script</button>
-              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Reg. link</a>
+              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🎟️ Reg. link</a>
             </div>
             <div class="share-row" data-script="s3">
               <span class="lbl">Post to:</span>
@@ -492,18 +518,18 @@ https://luma.com/g86uye1u</div>
           </div>
           <div class="card-body">
             <span class="channel-pill post">Morning social post</span>
-            <div class="script" id="s4">🚀 Today's the day — The Secret Sauce business lunch in Elk Grove.
+            <div class="script" id="s4">🚀 Today's the day. The Secret Sauce business lunch in Elk Grove.
 
-Doors and lunch open at 11:30 AM, and Brandon and Chris from The Average Joe's MBA kick off the presentation at noon. Practical, real-world ideas for getting more clients — no fluff, no pitch.
+Doors and lunch open at 11:30 AM, and Brandon and Chris from The Average Joe's MBA kick off the presentation at noon. Practical, real-world ideas for getting more clients, with no fluff and no pitch.
 
 There's still time to grab a seat ($25, lunch included). Come hang out:
 📍 9280 W Stockton Blvd #200, Elk Grove
-🔗 https://luma.com/g86uye1u
+🎟️ https://luma.com/g86uye1u
 
 If you've been meaning to come, this is your sign. See you there. 🙌</div>
             <div class="actions">
               <button class="btn btn-copy" onclick="copyText('s4',this)">📋 Copy script</button>
-              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🔗 Reg. link</a>
+              <a class="btn btn-ghost" href="https://luma.com/g86uye1u" target="_blank" rel="noopener">🎟️ Reg. link</a>
             </div>
             <div class="share-row" data-script="s4">
               <span class="lbl">Post to:</span>
@@ -518,112 +544,19 @@ If you've been meaning to come, this is your sign. See you there. 🙌</div>
     </div>
   </section>
 
-  <!-- STEP 3 — TEXTS & EMAILS -->
-  <section class="section" id="texts">
-    <div class="section-head"><span class="num">3</span><h2><span class="step-label">Step 3</span>Send personal texts &amp; emails</h2></div>
-    <p class="section-sub">🎯 This is where seats get filled. Send these <b>one-to-one</b> to people you know — on mobile, the green button opens your Messages app pre-filled. Start ~10 days out and follow up with anyone who didn't reply.</p>
+  <!-- STEP 3: EMAILS & TEXTS (email first) -->
+  <section class="section reveal" id="texts">
+    <div class="section-head"><span class="num">3</span><h2><span class="step-label">Step 3</span>Send personal emails &amp; texts</h2></div>
+    <p class="section-sub">🎯 This is where seats get filled. Send these <b>one-to-one</b> to people you know. On mobile, the green <b>Text</b> button sends straight from your Messages app. Start about 10 days out and follow up with anyone who didn't reply.</p>
 
     <div class="timeline">
 
-      <!-- Text invite (short) -->
+      <!-- Email invite (now first) -->
       <div class="step open">
         <div class="dot"></div>
         <div class="card">
           <div class="card-top" onclick="toggle(this)">
-            <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">💬</div><div class="m">Text</div></div>
-            <div class="card-meta">
-              <div class="tag">💬 Text invite · short</div>
-              <h3>Quick personal invite</h3>
-              <p>For warm contacts. Fast and casual.</p>
-            </div>
-            <div class="chev">›</div>
-          </div>
-          <div class="card-body">
-            <span class="channel-pill text">Send as a one-to-one text</span>
-            <div class="script" id="t1">Hey there — I'm sponsoring a local business event on Thursday, July 23 in Elk Grove called The Secret Sauce.
-
-It's for business owners who want practical help with lead generation, marketing, referrals, and getting more customers in the door.
-
-Lunch is included, tickets are $25, and it's at 9280 W Stockton Blvd #200, Elk Grove. Doors and lunch open at 11:30 AM and the talk starts at noon. Open networking after.
-
-I'd love to have you as my guest. Here's the link:
-https://luma.com/g86uye1u</div>
-            <div class="actions">
-              <button class="btn btn-copy" onclick="copyText('t1',this)">📋 Copy text</button>
-              <a class="btn btn-ghost sms-link" data-script="t1" href="#" onclick="return openSMS('t1')">💬 Open in Messages</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Text invite (long) -->
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="card-top" onclick="toggle(this)">
-            <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">💬</div><div class="m">Text</div></div>
-            <div class="card-meta">
-              <div class="tag">💬 Text invite · long</div>
-              <h3>Fuller personal invite</h3>
-              <p>When you want to give a bit more context.</p>
-            </div>
-            <div class="chev">›</div>
-          </div>
-          <div class="card-body">
-            <span class="channel-pill text">Send as a one-to-one text</span>
-            <div class="script" id="t2">Hey there, I wanted to personally invite you to an event I'm sponsoring called The Secret Sauce on Thursday, July 23 in Elk Grove.
-
-It's for local business owners who want practical ways to get more clients without all the marketing fluff. Brandon and Chris from The Average Joe's MBA are sharing what's actually working, what they've learned the hard way, and simple strategies business owners can use right away.
-
-Doors and lunch open at 11:30 AM, the presentation starts at noon, lunch is included, and tickets are only $25. Open networking to follow.
-
-Here's the link if you want to grab a spot:
-https://luma.com/g86uye1u</div>
-            <div class="actions">
-              <button class="btn btn-copy" onclick="copyText('t2',this)">📋 Copy text</button>
-              <a class="btn btn-ghost sms-link" data-script="t2" href="#" onclick="return openSMS('t2')">💬 Open in Messages</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Text follow up -->
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="card-top" onclick="toggle(this)">
-            <div class="when" style="background:var(--green)"><div class="d" style="color:#fff">↻</div><div class="m">Follow up</div></div>
-            <div class="card-meta">
-              <div class="tag">🔁 Text follow-up</div>
-              <h3>Bump for non-repliers</h3>
-              <p>Send to anyone who didn't reply the first time.</p>
-            </div>
-            <div class="chev">›</div>
-          </div>
-          <div class="card-body">
-            <span class="channel-pill text">Send as a one-to-one text</span>
-            <div class="script" id="t3">Hey there, just wanted to bump this up in case you missed it.
-
-🚀 I'm sponsoring The Secret Sauce on Thursday, July 23 in Elk Grove. It's a practical business lunch for local owners who want more leads and better marketing clarity.
-
-💰 $25 with lunch included. Doors at 11:30 AM, talk at noon.
-
-Here's the link:
-https://luma.com/g86uye1u</div>
-            <div class="actions">
-              <button class="btn btn-copy" onclick="copyText('t3',this)">📋 Copy text</button>
-              <a class="btn btn-ghost sms-link" data-script="t3" href="#" onclick="return openSMS('t3')">💬 Open in Messages</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Email invite -->
-      <div class="step">
-        <div class="dot"></div>
-        <div class="card">
-          <div class="card-top" onclick="toggle(this)">
-            <div class="when" style="background:#c25b18"><div class="d" style="color:#fff">✉️</div><div class="m">Email</div></div>
+            <div class="when send" style="background:#c25b18" title="Open in your email app" onclick="event.stopPropagation();return openEmail()"><div class="d" style="color:#fff">✉️</div><div class="m">Email</div><span class="tap">Tap to send</span></div>
             <div class="card-meta">
               <div class="tag">✉️ Email invite</div>
               <h3>The full written invite</h3>
@@ -643,7 +576,7 @@ I wanted to personally invite you to a local business event I'm sponsoring calle
 
 It's happening Thursday, July 23 at 9280 W Stockton Blvd #200 in Elk Grove. Doors and lunch open at 11:30 AM, and the presentation starts at 12:00 PM (noon). Lunch is included, and tickets are $25. Open networking to follow.
 
-The event is built for business owners and leaders who want practical, real-world ideas for getting more clients, improving lead flow, and making smarter growth decisions — without all the generic marketing hype.
+The event is built for business owners and leaders who want practical, real-world ideas for getting more clients, improving lead flow, and making smarter growth decisions, without all the generic marketing hype.
 
 Brandon and Chris will be sharing lessons from their own businesses, including:
 
@@ -656,7 +589,7 @@ I'm sponsoring it because I believe local business owners need more honest conve
 
 Seats are limited, so if you'd like to come as my guest, you can reserve your spot here:
 
-https://luma.com/g86uye1u
+🎟️ https://luma.com/g86uye1u
 
 Hope to see you there,
 
@@ -664,7 +597,108 @@ Colby Bell
 New York Life</div>
             <div class="actions">
               <button class="btn btn-copy" onclick="copyText('e1',this)">📋 Copy email body</button>
-              <a class="btn btn-ghost" href="#" onclick="return openEmail()">✉️ Open in email app</a>
+              <a class="btn btn-send" href="#" onclick="return openEmail()">✉️ Open in email app</a>
+            </div>
+            <div class="howto">
+              <b class="h">📈 Sending to a bigger list?</b>
+              <ul>
+                <li><span class="k">✉️ Mail merge (best):</span> send personalized, one-to-one emails in bulk, each addressed to the person by name. Tutorials: <a href="https://support.google.com/mail/answer/12734704" target="_blank" rel="noopener">Gmail multi-send (Google)</a> and <a href="https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4" target="_blank" rel="noopener">Mail merge in Outlook (Microsoft)</a>.</li>
+                <li><span class="k">📨 BCC blast (fastest):</span> paste everyone into the BCC field so it goes out as one quick email and no one sees each other's address.</li>
+                <li><span class="k">📰 Newsletter:</span> already send a newsletter? Drop this invite into your next one for extra reach.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text invite (short) -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t1')"><div class="d" style="color:#fff">💬</div><div class="m">Text</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">💬 Text invite · short</div>
+              <h3>Quick personal invite</h3>
+              <p>For warm contacts. Fast and casual.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t1')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t1">Hey there, I'm sponsoring a local business event on Thursday, July 23 in Elk Grove called The Secret Sauce.
+
+It's for business owners who want practical help with lead generation, marketing, referrals, and getting more customers in the door.
+
+Lunch is included, tickets are $25, and it's at 9280 W Stockton Blvd #200, Elk Grove. Doors and lunch open at 11:30 AM and the talk starts at noon. Open networking after.
+
+I'd love to have you as my guest. Here's the link:
+🎟️ https://luma.com/g86uye1u</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t1',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t1" href="#" onclick="return openSMS('t1')">💬 Open in Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text invite (long) -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t2')"><div class="d" style="color:#fff">💬</div><div class="m">Text</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">💬 Text invite · long</div>
+              <h3>Fuller personal invite</h3>
+              <p>When you want to give a bit more context.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t2')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t2">Hey there, I wanted to personally invite you to an event I'm sponsoring called The Secret Sauce on Thursday, July 23 in Elk Grove.
+
+It's for local business owners who want practical ways to get more clients without all the marketing fluff. Brandon and Chris from The Average Joe's MBA are sharing what's actually working, what they've learned the hard way, and simple strategies business owners can use right away.
+
+Doors and lunch open at 11:30 AM, the presentation starts at noon, lunch is included, and tickets are only $25. Open networking to follow.
+
+Here's the link if you want to grab a spot:
+🎟️ https://luma.com/g86uye1u</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t2',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t2" href="#" onclick="return openSMS('t2')">💬 Open in Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text follow up -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t3')"><div class="d" style="color:#fff">🔁</div><div class="m">Bump</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">🔁 Text follow-up</div>
+              <h3>Bump for non-repliers</h3>
+              <p>Send to anyone who didn't reply the first time.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t3')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t3">Hey there, just wanted to bump this up in case you missed it.
+
+🚀 I'm sponsoring The Secret Sauce on Thursday, July 23 in Elk Grove. It's a practical business lunch for local owners who want more leads and better marketing clarity.
+
+💰 $25 with lunch included. Doors at 11:30 AM, talk at noon.
+
+Here's the link:
+🎟️ https://luma.com/g86uye1u</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t3',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t3" href="#" onclick="return openSMS('t3')">💬 Open in Messages</a>
             </div>
           </div>
         </div>
@@ -674,9 +708,9 @@ New York Life</div>
   </section>
 
   <!-- FLYER AGAIN (end) -->
-  <section class="section" id="flyer-end">
+  <section class="section reveal" id="flyer-end">
     <div class="section-head"><span class="num">📥</span><h2>Need the flyer again?</h2></div>
-    <p class="section-sub">Here it is one more time — download it or copy it straight to your clipboard, then attach it to whatever you're sending.</p>
+    <p class="section-sub">Here it is one more time. Download it or copy it straight to your clipboard, then attach it to whatever you're sending.</p>
     <div class="flyer-wrap">
       <div class="flyer-img">
         <img id="flyerImg2"
@@ -684,8 +718,8 @@ New York Life</div>
              alt="The Secret Sauce event flyer">
       </div>
       <div class="flyer-side">
-        <h3>The Secret Sauce — official flyer</h3>
-        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text/email attachment.</p>
+        <h3>The official Secret Sauce flyer</h3>
+        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text or email attachment.</p>
         <div class="actions">
           <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
           <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
@@ -697,9 +731,9 @@ New York Life</div>
   </section>
 
   <!-- EVENT VIBE GALLERY -->
-  <section class="section" id="vibe">
+  <section class="section reveal" id="vibe">
     <div class="section-head"><span class="num">📸</span><h2>What the room feels like</h2></div>
-    <p class="section-sub">A look at a past Secret Sauce lunch — real local owners, real conversations, real food. This is the vibe you're inviting people into. Tap any photo to enlarge.</p>
+    <p class="section-sub">A look at a past Secret Sauce lunch: real local owners, real conversations, real food. This is the vibe you're inviting people into. Tap any photo to enlarge.</p>
     <div class="gallery">
       <a class="feature" href="SecretSauceJuly20250003.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250003.jpg" alt="The Secret Sauce masterclass in session" loading="lazy"></a>
       <a href="SecretSauceJuly20250006.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250006.jpg" alt="Business owners at The Secret Sauce" loading="lazy"></a>
@@ -709,7 +743,10 @@ New York Life</div>
       <a href="SecretSauceJuly20250017.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250017.jpg" alt="Attendees at The Secret Sauce" loading="lazy"></a>
       <a href="SecretSauceJuly20250031.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250031.jpg" alt="The Secret Sauce lunch" loading="lazy"></a>
     </div>
-    <p class="gallery-note">📎 Feel free to drop one of these into a post or text — nothing sells the room like seeing it full.</p>
+    <div class="actions" style="margin-top:14px;justify-content:center">
+      <button class="btn btn-copy" onclick="downloadAllPhotos()">⬇️ Download all photos</button>
+    </div>
+    <p class="gallery-note">📎 Feel free to drop one of these into a post or text. Nothing sells the room like seeing it full.</p>
   </section>
 
   <footer>
@@ -753,11 +790,11 @@ New York Life</div>
       showToast('Copied to clipboard');
     });
   }
-  function copyEl(id){ rawCopy(getText(id)).then(function(){showToast('Script copied — now paste & post');}); }
+  function copyEl(id){ rawCopy(getText(id)).then(function(){showToast('Script copied. Now paste and post.');}); }
 
   function openSMS(id){
     var body=encodeURIComponent(getText(id));
-    // iOS uses &body, Android uses ?body — &body works broadly when no number is set
+    // iOS uses &body, Android uses ?body; &body works broadly when no number is set
     window.location.href='sms:&body='+body;
     showToast('Opening Messages…');
     return false;
@@ -780,7 +817,7 @@ New York Life</div>
       showToast('Flyer downloaded');
     }).catch(function(){
       window.open(FLYER_URL,'_blank');
-      showToast('Opened image — right-click to save');
+      showToast('Opened image. Right-click to save.');
     });
   }
   function copyFlyer(btn){
@@ -795,16 +832,43 @@ New York Life</div>
           c.toBlob(function(pngBlob){
             navigator.clipboard.write([new ClipboardItem({'image/png':pngBlob})]).then(function(){
               showToast('Image copied to clipboard');
-            }).catch(function(){showToast('Copy not supported — use Download instead');});
+            }).catch(function(){showToast('Copy not supported. Use Download instead.');});
           },'image/png');
         };
-        img.onerror=function(){showToast('Copy not supported — use Download instead');};
+        img.onerror=function(){showToast('Copy not supported. Use Download instead.');};
         img.src=URL.createObjectURL(blob);
       }else{
-        showToast('Copy not supported here — use Download instead');
+        showToast('Copy not supported here. Use Download instead.');
       }
-    }).catch(function(){showToast('Copy blocked — use Download instead');});
+    }).catch(function(){showToast('Copy blocked. Use Download instead.');});
   }
+
+  // Download every event photo
+  var PHOTOS=['SecretSauceJuly20250003.jpg','SecretSauceJuly20250006.jpg','SecretSauceJuly20250016.jpg','FPD01149.jpg','FPD01167.jpg','SecretSauceJuly20250017.jpg','SecretSauceJuly20250031.jpg'];
+  function downloadAllPhotos(){
+    showToast('Downloading all '+PHOTOS.length+' photos…');
+    PHOTOS.forEach(function(src,i){
+      setTimeout(function(){
+        var a=document.createElement('a'); a.href=src; a.download=src;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i*400);
+    });
+  }
+
+  // Reveal-on-scroll animations
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){el.classList.add('in')});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  })();
 </script>
 </body>
 </html>
