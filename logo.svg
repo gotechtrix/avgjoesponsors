@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="The Average Joe's MBA. Educate. Coach. Support. Est. 2024.">
+  <defs>
+    <path id="topArc" d="M118,205 A200,200 0 0 1 482,205" fill="none"/>
+    <clipPath id="emblem"><circle cx="300" cy="250" r="116"/></clipPath>
+    <style>
+      .arc{font-family:'Arial Narrow','Helvetica Neue',Arial,sans-serif;font-weight:800;letter-spacing:2px}
+      .est{font-family:'Arial Narrow','Helvetica Neue',Arial,sans-serif;font-weight:800;letter-spacing:1px}
+      .mba{font-family:Georgia,'Times New Roman',serif;font-weight:bold;letter-spacing:6px}
+      .tag{font-family:'Arial Narrow','Helvetica Neue',Arial,sans-serif;font-weight:800;letter-spacing:3px}
+    </style>
+  </defs>
+
+  <!-- badge background -->
+  <rect x="0" y="0" width="600" height="600" rx="34" fill="#F4A41C"/>
+  <rect x="14" y="14" width="572" height="572" rx="26" fill="none" stroke="#7B2B2A" stroke-width="3" opacity=".55"/>
+
+  <!-- arched brand name -->
+  <text class="arc" font-size="50" fill="#7B2B2A">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">THE AVERAGE JOE'S</textPath>
+  </text>
+
+  <!-- founders emblem -->
+  <g clip-path="url(#emblem)">
+    <g fill="#7B2B2A">
+      <circle cx="262" cy="232" r="37"/>
+      <circle cx="338" cy="232" r="37"/>
+      <path d="M176 372c0-46 29-69 58-69 16 0 29 7 38 20 9-13 22-20 38-20 29 0 58 23 58 69z"/>
+    </g>
+  </g>
+  <circle cx="300" cy="250" r="116" fill="none" stroke="#7B2B2A" stroke-width="7"/>
+
+  <!-- EST. 2024 with rules -->
+  <text class="est" x="105" y="258" font-size="30" fill="#7B2B2A" text-anchor="middle">EST.</text>
+  <line x1="62" y1="278" x2="148" y2="278" stroke="#7B2B2A" stroke-width="5"/>
+  <text class="est" x="495" y="258" font-size="30" fill="#7B2B2A" text-anchor="middle">2024</text>
+  <line x1="452" y1="278" x2="538" y2="278" stroke="#7B2B2A" stroke-width="5"/>
+
+  <!-- MBA -->
+  <text class="mba" x="300" y="488" font-size="152" fill="#7B2B2A" text-anchor="middle">MBA</text>
+
+  <!-- tagline + rules + star -->
+  <text class="tag" x="300" y="536" font-size="29" fill="#7B2B2A" text-anchor="middle">EDUCATE. COACH. SUPPORT.</text>
+  <line x1="64" y1="556" x2="270" y2="556" stroke="#7B2B2A" stroke-width="3"/>
+  <line x1="330" y1="556" x2="536" y2="556" stroke="#7B2B2A" stroke-width="3"/>
+  <path fill="#7B2B2A" d="M300 543l4.6 9.3 10.3 1.5-7.4 7.3 1.7 10.2-9.2-4.8-9.2 4.8 1.7-10.2-7.4-7.3 10.3-1.5z"/>
+</svg>

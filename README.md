@@ -1,16 +1,17 @@
 # avgjoesponsors
 
-Sponsor promo pages for **The Average Joe's MBA** events.
+Sponsor promo pages for **The Average Joe's MBA** events, served via Cloudflare Pages.
 
-Each sponsor/event gets its own self-contained page served via GitHub Pages.
+## Structure (URL ↔ file)
 
-## Pages
+| URL | File |
+|-----|------|
+| `/` | `index.html` — landing: sponsors + events |
+| `/colbybell/` | `colbybell/index.html` — Colby Bell's sponsored events |
+| `/colbybell/secret-sauce-elk-grove-july-23-2026/` | `colbybell/secret-sauce-elk-grove-july-23-2026/index.html` — full promo kit |
 
-- **Colby Bell — The Secret Sauce (Elk Grove, July 23, 2026)**
-  `colbybell/secret-sauce-elk-grove-july-23-2026/`
+Brand assets (`logo.svg`, `favicon.svg`) live at the repo root and inside each event folder.
 
-## Going live (GitHub Pages)
+## Cloudflare Pages setting
 
-1. Settings → Pages → Build and deployment → Source: **Deploy from a branch**
-2. Branch: `main`, folder: `/ (root)` → Save
-3. Pages will publish at `https://gotechtrix.github.io/avgjoesponsors/`
+For the URLs above to resolve, the Pages project's **build output directory must be the repo root** (`/`). If it is set to a subfolder, that subfolder becomes the site root instead.
