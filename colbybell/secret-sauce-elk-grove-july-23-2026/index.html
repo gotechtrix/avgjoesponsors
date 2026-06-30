@@ -50,7 +50,7 @@
     content:"";position:absolute;inset:0;
     background:radial-gradient(circle at 80% -10%, rgba(248,207,44,.22), transparent 55%);
   }
-  .hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
+  .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
   .kicker{
     display:inline-block;background:var(--gold);color:#1a1a1a;font-weight:800;
     letter-spacing:.5px;font-size:13.5px;text-transform:uppercase;
@@ -66,9 +66,9 @@
     transition:transform .14s ease,box-shadow .14s ease;
   }
   .hero-cta:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
-  .quicknav{display:flex;gap:9px;flex-wrap:nowrap;justify-content:center;margin-top:16px;overflow-x:auto;padding:2px 2px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .quicknav{display:flex;gap:8px;flex-wrap:nowrap;width:max-content;max-width:100%;margin:16px auto 0;overflow-x:auto;padding:3px 4px 7px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .quicknav::-webkit-scrollbar{display:none}
-  .quicknav a{flex:0 0 auto;white-space:nowrap;font-size:14.5px;font-weight:700;color:#d6d6d6;text-decoration:none;border:1px solid rgba(255,255,255,.20);padding:8px 15px;border-radius:20px;transition:background .15s ease,color .15s ease,transform .15s ease}
+  .quicknav a{flex:0 0 auto;white-space:nowrap;font-size:14px;font-weight:700;color:#d6d6d6;text-decoration:none;border:1px solid rgba(255,255,255,.20);padding:8px 13px;border-radius:20px;transition:background .15s ease,color .15s ease,transform .15s ease}
   .quicknav a:hover{background:rgba(255,255,255,.10);color:#fff;transform:translateY(-2px)}
 
   /* ---------- SECTION ---------- */
@@ -142,6 +142,7 @@
   .script{
     background:#fafaf7;border:1px solid var(--line);border-radius:12px;
     padding:15px 17px;font-size:17px;white-space:pre-wrap;color:#2a2a2a;margin-top:8px;line-height:1.65;
+    overflow-wrap:anywhere;word-break:break-word;
   }
   .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
   .btn{
@@ -246,6 +247,61 @@
 
   /* Instagram glyph */
   .sbtn svg{width:21px;height:21px;display:block}
+
+  /* ---------- MOBILE OPTIMIZATION ---------- */
+  @media(max-width:600px){
+    body{font-size:16px}
+    .wrap{padding:0 14px 56px}
+    .banner-strip{padding:0 14px}
+    .banner{border-width:2px;border-radius:14px}
+    .sponsor{padding:0 14px}
+    .sponsor-card{padding:18px 18px;gap:14px}
+    .headshot,.headshot-ph{width:108px;height:108px}
+    .headshot-ph{font-size:38px}
+    .sponsor-info h3{font-size:23px}
+    .sponsor-info p{font-size:15px}
+    .nyl-logo{width:78px;height:78px}
+    .hero{padding:22px 16px 22px}
+    .hero p.sub{font-size:16.5px}
+    .hero-cta{font-size:16px;padding:13px 22px}
+    .section{margin-top:34px}
+    .section-head{gap:11px}
+    .section-head h2{font-size:21.5px}
+    .section-head .num{width:36px;height:36px;border-radius:9px;font-size:18px}
+    .section-sub{font-size:15.5px;margin:4px 0 16px 0}
+    .why{padding:18px 17px}
+    .why h3{font-size:19px}
+    .why p{font-size:15.5px}
+    .pillar b{font-size:15.5px}
+    .pillar small{font-size:14px}
+    .timeline{padding-left:26px}
+    .dot{left:-26px;width:20px;height:20px}
+    .timeline:before{left:9px}
+    .card-top{padding:13px 13px 12px;gap:11px}
+    .when{min-width:70px;padding:8px 8px}
+    .when .d{font-size:18px}
+    .when .m{font-size:11px}
+    .when.send .tap{font-size:9px}
+    .card-meta h3{font-size:17px}
+    .card-meta p{font-size:13.5px}
+    .card-meta .tag{font-size:12px}
+    .script{font-size:15.5px;padding:13px 14px;line-height:1.6}
+    .btn{font-size:14.5px;padding:10px 14px}
+    .channel-pill{font-size:13px}
+    .howto{font-size:14.5px;padding:13px 14px}
+    .flyer-side h3{font-size:20px}
+    .flyer-side p{font-size:15.5px}
+    .gallery{grid-template-columns:repeat(2,1fr);gap:9px}
+    .gallery a.feature{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+    footer{font-size:14.5px}
+  }
+  @media(max-width:380px){
+    .section-head h2{font-size:19.5px}
+    .gallery{grid-template-columns:1fr}
+    .gallery a.feature{aspect-ratio:4/3}
+    .headshot,.headshot-ph{width:96px;height:96px}
+    .sbtn{width:38px;height:38px}
+  }
 </style>
 </head>
 <body>
