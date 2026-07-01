@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Announcement megaphone">
-  <rect width="64" height="64" rx="13" fill="#F4A41C"/>
-  <g fill="#7B2B2A">
-    <rect x="11.5" y="27" width="9.5" height="12" rx="2.6"/>
-    <path d="M21 27.5 L44 17 q3 -1.4 3 2 V45 q0 3.4 -3 2 L21 38.5 Z"/>
-  </g>
-  <g fill="none" stroke="#7B2B2A" stroke-width="3.2" stroke-linecap="round">
-    <path d="M50.5 26 a8 8 0 0 1 0 12"/>
-    <path d="M55 22 a13 13 0 0 1 0 20"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="The Average Joe's MBA">
+  <rect width="64" height="64" rx="13" fill="#ffffff"/>
+  <path d="M32 20 C25 16.5 15 16.5 9 19.5 L9 42 C15 39 25 39 32 42.5 Z" fill="#2C5AA0"/>
+  <path d="M32 20 C39 16.5 49 16.5 55 19.5 L55 42 C49 39 39 39 32 42.5 Z" fill="#2C5AA0"/>
+  <path d="M32 23.5 C26.5 20.8 18.5 20.8 13.5 22.6 L13.5 28.5 C18.5 26.9 26.5 26.9 32 29.2 Z" fill="#EBDCB4"/>
+  <path d="M32 23.5 C37.5 20.8 45.5 20.8 50.5 22.6 L50.5 28.5 C45.5 26.9 37.5 26.9 32 29.2 Z" fill="#EBDCB4"/>
+  <path d="M24.5 46 L39.5 46 L38.2 54.5 A5.2 5.2 0 0 1 33.1 59 L30.9 59 A5.2 5.2 0 0 1 25.8 54.5 Z" fill="#C48A46"/>
+  <path d="M39.5 48.3 A4.6 4.6 0 0 1 39.5 55.6" fill="none" stroke="#C48A46" stroke-width="2.6"/>
 </svg>
