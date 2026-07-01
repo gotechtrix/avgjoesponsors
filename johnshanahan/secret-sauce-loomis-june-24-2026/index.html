@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Secret Sauce: Promo Kit for John</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="description" content="The Secret Sauce: a live, in-person business masterclass by The Average Joe's MBA. Wednesday, June 24, 2026 in Loomis, CA. $25, lunch included. Sponsored by John Shanahan, Lighthouse Window Cleaning.">
+<meta property="og:title" content="The Secret Sauce: Business Masterclass · June 24, Loomis">
+<meta property="og:description" content="A live, in-person rapid-fire masterclass for business owners. Wed, June 24, 2026 · Loomis, CA · $25, lunch included.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avgjoesponsors.pages.dev/johnshanahan/secret-sauce-loomis-june-24-2026/">
+<meta property="og:image" content="https://avgjoesponsors.pages.dev/johnshanahan/secret-sauce-loomis-june-24-2026/secret-sauce-flyer.png">
+<meta property="og:image:alt" content="The Secret Sauce event flyer">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --gold:#F8CF2C;
+    --gold-dark:#e0b81f;
+    --ink:#1a1a1a;
+    --ink-soft:#262827;
+    --paper:#fbfbf9;
+    --card:#ffffff;
+    --line:#ececec;
+    --muted:#6b6b6b;
+    --green:#1f9d57;
+    --shadow:0 4px 18px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.55;font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 18px 70px}
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes popIn{0%{opacity:0;transform:scale(.94)}100%{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    *{animation:none !important}
+  }
+
+  /* ---------- HERO (tightened) ---------- */
+  .hero{
+    background:var(--ink-soft);
+    color:#fff;border-radius:0 0 26px 26px;
+    padding:24px 26px 24px;text-align:center;position:relative;overflow:hidden;
+    animation:fadeUp .55s ease .08s both;
+  }
+  .hero:before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% -10%, rgba(248,207,44,.22), transparent 55%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .kicker{
+    display:inline-block;background:var(--gold);color:#1a1a1a;font-weight:800;
+    letter-spacing:.5px;font-size:13.5px;text-transform:uppercase;
+    padding:7px 15px;border-radius:30px;margin-bottom:12px;
+  }
+  .hero h1{font-size:clamp(34px,7vw,54px);line-height:1.02;font-weight:900;letter-spacing:-1px}
+  .hero h1 .y{color:var(--gold)}
+  .hero p.sub{color:#e3e3e3;margin-top:9px;font-size:18.5px;max-width:660px;margin-left:auto;margin-right:auto}
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    background:var(--gold);color:#1a1a1a;font-weight:800;text-decoration:none;
+    padding:14px 28px;border-radius:30px;font-size:17.5px;box-shadow:var(--shadow);
+    transition:transform .14s ease,box-shadow .14s ease;
+  }
+  .hero-cta:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.28)}
+  .quicknav{display:flex;gap:8px;flex-wrap:nowrap;width:max-content;max-width:100%;margin:16px auto 0;overflow-x:auto;padding:3px 4px 7px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .quicknav::-webkit-scrollbar{display:none}
+  .quicknav a{flex:0 0 auto;white-space:nowrap;font-size:14px;font-weight:700;color:#d6d6d6;text-decoration:none;border:1px solid rgba(255,255,255,.20);padding:8px 13px;border-radius:20px;transition:background .15s ease,color .15s ease,transform .15s ease}
+  .quicknav a:hover{background:rgba(255,255,255,.10);color:#fff;transform:translateY(-2px)}
+
+  /* ---------- SECTION ---------- */
+  .section{margin-top:44px}
+  .section-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .section-head h2{font-size:27px;font-weight:900;letter-spacing:-.4px;line-height:1.1}
+  .section-head .num{
+    background:var(--ink);color:var(--gold);width:42px;height:42px;border-radius:11px;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:21px;flex:0 0 auto;
+    transition:transform .2s ease;
+  }
+  .section:hover .section-head .num{transform:rotate(-5deg) scale(1.06)}
+  .step-label{font-size:13px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--gold-dark);display:block;margin-bottom:1px}
+  .section-sub{color:var(--muted);font-size:17px;margin:4px 0 18px 56px}
+  @media(max-width:560px){.section-sub{margin-left:0}}
+
+  /* ---------- WHY CALLOUT ---------- */
+  .why{
+    background:linear-gradient(135deg,#fff8df,#fdeeb0);
+    border:1px solid #f1dd86;border-radius:18px;padding:24px 26px;
+  }
+  .why h3{font-size:22px;font-weight:900;margin-bottom:9px;display:flex;align-items:center;gap:9px}
+  .why p{font-size:17px;color:#5a5028;margin-bottom:11px}
+  .why .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+  @media(max-width:560px){.why .pillars{grid-template-columns:1fr}}
+  .pillar{background:rgba(255,255,255,.7);border-radius:12px;padding:14px 15px;transition:transform .18s ease,box-shadow .18s ease}
+  .pillar:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+  .pillar .em{font-size:26px}
+  .pillar b{display:block;margin-top:5px;font-size:16.5px}
+  .pillar small{color:#766a3a;font-size:14.5px;line-height:1.45;display:block;margin-top:3px}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:34px}
+  .timeline:before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .step{position:relative;margin-bottom:14px}
+  .dot{position:absolute;left:-34px;top:18px;width:24px;height:24px;border-radius:50%;
+    background:var(--gold);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--gold);z-index:1;transition:transform .2s ease}
+  .step.open .dot{transform:scale(1.15)}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);overflow:hidden;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease;
+  }
+  .card:hover{transform:translateY(-2px);box-shadow:0 9px 26px rgba(0,0,0,.10);border-color:#e2e2e2}
+  .card-top{padding:16px 18px 14px;cursor:pointer;display:flex;align-items:center;gap:14px}
+  .card-top:hover{background:#fcfcfa}
+  .when{
+    flex:0 0 auto;text-align:center;background:var(--ink-soft);color:#fff;border-radius:10px;
+    padding:9px 11px;min-width:84px;
+  }
+  .when.send{cursor:pointer;transition:transform .15s ease,filter .15s ease}
+  .when.send:hover{transform:translateY(-2px);filter:brightness(1.1)}
+  .when.send .tap{display:block;font-size:9.5px;letter-spacing:.4px;color:rgba(255,255,255,.85);margin-top:3px;text-transform:uppercase}
+  .when .d{font-size:21px;font-weight:900;line-height:1;color:var(--gold)}
+  .when .m{font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;color:#cfcfcf}
+  .card-meta{flex:1 1 auto;min-width:0}
+  .card-meta .tag{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--gold-dark)}
+  .card-meta h3{font-size:19.5px;font-weight:800;line-height:1.2}
+  .card-meta p{font-size:15px;color:var(--muted);margin-top:3px}
+  .chev{flex:0 0 auto;color:#bbb;font-size:24px;transition:transform .25s ease}
+  .step.open .chev{transform:rotate(90deg)}
+  .card-body{display:none;padding:0 18px 18px;border-top:1px solid var(--line)}
+  .step.open .card-body{display:block;animation:fadeIn .3s ease}
+
+  .channel-pill{display:inline-block;font-size:13.5px;font-weight:700;border-radius:20px;padding:4px 11px;margin:13px 8px 4px 0;border:1px solid var(--line);color:#555}
+  .channel-pill.post{background:#eef6ff;border-color:#cfe6ff;color:#1664c0}
+  .channel-pill.text{background:#eafaf0;border-color:#c4ecd3;color:#137a44}
+  .channel-pill.email{background:#fff1e8;border-color:#ffd9c2;color:#c25b18}
+  .channel-pill.clickable{cursor:pointer;transition:transform .14s ease,filter .14s ease,box-shadow .14s ease}
+  .channel-pill.clickable:hover{transform:translateY(-1px);filter:brightness(.98);box-shadow:0 3px 9px rgba(0,0,0,.08)}
+
+  .script{
+    background:#fafaf7;border:1px solid var(--line);border-radius:12px;
+    padding:15px 17px;font-size:17px;white-space:pre-wrap;color:#2a2a2a;margin-top:8px;line-height:1.65;
+    overflow-wrap:anywhere;word-break:break-word;
+  }
+  .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;border:none;cursor:pointer;
+    font-size:15.5px;font-weight:700;border-radius:9px;padding:11px 17px;text-decoration:none;
+    transition:transform .12s ease,filter .15s ease,box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.12)}
+  .btn:active{transform:scale(.97)}
+  .btn-copy{background:var(--ink);color:#fff}
+  .btn-copy.copied{background:var(--green)}
+  .btn-ghost{background:#fff;border:1px solid var(--line);color:#333}
+  .btn-ghost:hover{filter:brightness(.97)}
+  .btn-send{background:var(--green);color:#fff}
+  .btn .ic{width:16px;height:16px;display:inline-block;vertical-align:middle}
+  .share-row{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .share-row .lbl{font-size:14.5px;color:var(--muted);font-weight:700;margin-right:2px}
+  .sbtn{width:42px;height:42px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;
+    text-decoration:none;border:1px solid var(--line);background:#fff;font-weight:800;font-size:15px;color:#fff;transition:transform .15s ease,box-shadow .15s ease}
+  .sbtn:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+  .sb-li{background:#0a66c2}.sb-fb{background:#1877f2}.sb-ig{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
+  .sb-em{background:#555}.sb-sms{background:#1f9d57}
+
+  /* ---------- BIG-LIST HOW-TO ---------- */
+  .howto{margin-top:14px;background:#f3f8ff;border:1px solid #d6e6ff;border-radius:13px;padding:15px 17px;font-size:15.5px;color:#33414f}
+  .howto b.h{display:flex;align-items:center;gap:8px;font-size:16px;margin-bottom:9px;color:#16202b}
+  .howto ul{list-style:none;margin:0;padding:0}
+  .howto li{margin:8px 0;line-height:1.5}
+  .howto li .k{font-weight:800;color:#16202b}
+  .howto a{color:#1664c0;font-weight:700}
+
+  /* ---------- FLYER ---------- */
+  .flyer-wrap{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+  .flyer-img{flex:0 0 260px;max-width:260px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;transition:transform .25s ease,box-shadow .25s ease}
+  .flyer-img:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.14)}
+  .flyer-img img{width:100%;display:block}
+  .flyer-side{flex:1 1 320px;min-width:260px}
+  .flyer-side h3{font-size:22px;font-weight:900;margin-bottom:7px}
+  .flyer-side p{font-size:16.5px;color:var(--muted);margin-bottom:14px}
+
+  /* ---------- EVENT GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:6px}
+  .gallery a{display:block;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:4/3;background:#eee;position:relative}
+  .gallery a.feature{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  @media(max-width:520px){.gallery a.feature{grid-column:span 1;grid-row:span 1;aspect-ratio:4/3}}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .gallery a:hover img{transform:scale(1.06)}
+  .gallery-note{font-size:14px;color:var(--muted);margin-top:6px;text-align:center}
+
+  /* ---------- MISC ---------- */
+  .note{font-size:14px;color:var(--muted);margin-top:10px}
+  footer{text-align:center;color:var(--muted);font-size:15.5px;margin-top:50px;line-height:1.7}
+  footer a{color:var(--ink);font-weight:700}
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;padding:13px 22px;border-radius:30px;font-size:15.5px;font-weight:600;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:all .25s ease;z-index:99}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* ---------- TOP BANNER ---------- */
+  .banner-strip{max-width:920px;margin:18px auto 0;padding:0 18px;animation:fadeUp .5s ease both}
+  .banner{width:100%;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:3px solid var(--ink);display:block;line-height:0}
+  .banner img{width:100%;display:block}
+  .banner-fallback{display:none;background:var(--gold);color:#111;padding:30px 26px;text-align:left;font-weight:900}
+  .banner-fallback .bf-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px}
+  .banner-fallback h2{font-size:clamp(26px,5vw,42px);line-height:.95;letter-spacing:-1px}
+  .banner-fallback .bf-tag{background:#111;color:#fff;display:inline-block;padding:6px 12px;border-radius:6px;font-size:14px;margin-top:8px}
+  .banner-fallback .bf-ss{background:#111;color:#fff;padding:8px 16px;border-radius:6px;font-size:clamp(18px,3vw,26px)}
+
+  /* ---------- SPONSOR FEATURE ---------- */
+  .sponsor{
+    max-width:920px;margin:16px auto 0;padding:0 18px;animation:fadeUp .5s ease .04s both;
+  }
+  .sponsor-card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:22px;padding:22px 26px;position:relative;overflow:hidden;
+  }
+  .sponsor-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--gold)}
+  .headshot{
+    flex:0 0 auto;width:134px;height:134px;border-radius:50%;object-fit:cover;
+    border:4px solid var(--gold);box-shadow:0 4px 14px rgba(0,0,0,.18);background:#eee;
+  }
+  .headshot-ph{
+    flex:0 0 auto;width:134px;height:134px;border-radius:50%;
+    border:4px solid var(--gold);background:linear-gradient(135deg,#1a1a1a,#3a3a3a);color:var(--gold);
+    display:none;align-items:center;justify-content:center;text-align:center;font-size:46px;font-weight:900;letter-spacing:1px;
+    box-shadow:0 4px 14px rgba(0,0,0,.18);
+  }
+  .sponsor-info{flex:1 1 auto;min-width:0}
+  .sponsor-info .lbl{font-size:13.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold-dark)}
+  .sponsor-info h3{font-size:27px;font-weight:900;letter-spacing:-.3px;margin-top:1px}
+  .sponsor-info p{font-size:16px;color:var(--muted);margin-top:4px;max-width:520px}
+  .nyl{flex:0 0 auto;text-align:center}
+  .nyl-logo{width:96px;height:96px;border-radius:12px;display:block;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+  .nyl .cap{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:6px;letter-spacing:.3px}
+  @media(max-width:560px){
+    .sponsor-card{flex-wrap:wrap;gap:16px;justify-content:center;text-align:center}
+    .nyl{order:2}
+    .sponsor-info{flex:1 1 100%;order:3}
+    .sponsor-info p{margin-left:auto;margin-right:auto}
+  }
+
+  /* Instagram glyph */
+  .sbtn svg{width:21px;height:21px;display:block}
+
+  /* ---------- MOBILE OPTIMIZATION ---------- */
+  @media(max-width:600px){
+    body{font-size:16px}
+    .wrap{padding:0 14px 56px}
+    .banner-strip{padding:0 14px}
+    .banner{border-width:2px;border-radius:14px}
+    .sponsor{padding:0 14px}
+    .sponsor-card{padding:18px 18px;gap:14px}
+    .headshot,.headshot-ph{width:108px;height:108px}
+    .headshot-ph{font-size:38px}
+    .sponsor-info h3{font-size:23px}
+    .sponsor-info p{font-size:15px}
+    .nyl-logo{width:78px;height:78px}
+    .hero{padding:22px 16px 22px}
+    .hero p.sub{font-size:16.5px}
+    .hero-cta{font-size:16px;padding:13px 22px}
+    .section{margin-top:34px}
+    .section-head{gap:11px}
+    .section-head h2{font-size:21.5px}
+    .section-head .num{width:36px;height:36px;border-radius:9px;font-size:18px}
+    .section-sub{font-size:15.5px;margin:4px 0 16px 0}
+    .why{padding:18px 17px}
+    .why h3{font-size:19px}
+    .why p{font-size:15.5px}
+    .pillar b{font-size:15.5px}
+    .pillar small{font-size:14px}
+    .timeline{padding-left:26px}
+    .dot{left:-26px;width:20px;height:20px}
+    .timeline:before{left:9px}
+    .card-top{padding:13px 13px 12px;gap:11px}
+    .when{min-width:70px;padding:8px 8px}
+    .when .d{font-size:18px}
+    .when .m{font-size:11px}
+    .when.send .tap{font-size:9px}
+    .card-meta h3{font-size:17px}
+    .card-meta p{font-size:13.5px}
+    .card-meta .tag{font-size:12px}
+    .script{font-size:15.5px;padding:13px 14px;line-height:1.6}
+    .btn{font-size:14.5px;padding:10px 14px}
+    .channel-pill{font-size:13px}
+    .howto{font-size:14.5px;padding:13px 14px}
+    .flyer-side h3{font-size:20px}
+    .flyer-side p{font-size:15.5px}
+    .gallery{grid-template-columns:repeat(2,1fr);gap:9px}
+    .gallery a.feature{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+    footer{font-size:14.5px}
+  }
+  @media(max-width:380px){
+    .section-head h2{font-size:19.5px}
+    .gallery{grid-template-columns:1fr}
+    .gallery a.feature{aspect-ratio:4/3}
+    .headshot,.headshot-ph{width:96px;height:96px}
+    .sbtn{width:38px;height:38px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BANNER ===== -->
+<div class="banner-strip">
+  <div class="banner">
+    <img id="bannerImg" src="event-banner.png" alt="The Average Joe's MBA. The Secret Sauce. In-Person Masterclass. Wednesday, June 24 at 11:30 AM. Loomis, CA."
+         onerror="document.getElementById('bannerImg').style.display='none';document.getElementById('bannerFallback').style.display='block';">
+    <div class="banner-fallback" id="bannerFallback">
+      <div class="bf-row">
+        <div>
+          <h2>THE AVERAGE<br>JOE'S MBA</h2>
+          <span class="bf-tag">IN-PERSON MASTERCLASS</span><br>
+          <span class="bf-tag">WED, JUNE 24 @ 11:30 AM</span><br>
+          <span class="bf-tag">ELK GROVE, CA</span>
+        </div>
+        <div class="bf-ss">THE SECRET SAUCE</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SPONSOR FEATURE ===== -->
+<div class="sponsor">
+  <div class="sponsor-card">
+    <img class="headshot" id="colbyImg" src="john-headshot.jpg" alt="John Shanahan"
+         onerror="this.style.display='none';document.getElementById('colbyPh').style.display='flex';">
+    <div class="headshot-ph" id="colbyPh">JS</div>
+    <div class="sponsor-info">
+      <div class="lbl">★ Proudly sponsored by</div>
+      <h3>John Shanahan</h3>
+      <p>This event is brought to the local business community through John's sponsorship, a chance to deliver real value to his network. Help him pack the room.</p>
+    </div>
+    <div class="nyl" title="Lighthouse Window Cleaning">
+      <img class="nyl-logo" src="lighthouse-logo.png" alt="Lighthouse Window Cleaning" style="object-fit:contain;background:#fff"
+           onerror="this.style.display='none';document.getElementById('lhBadge').style.display='flex';">
+      <span class="nyl-logo" id="lhBadge" style="display:none;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#0a2a5e,#123b7a);color:#fff;font-weight:900;font-size:12px;line-height:1.15;padding:8px">LIGHTHOUSE<br>WINDOW CLEANING</span>
+      <span class="cap">Lighthouse Window Cleaning</span>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="kicker">Your Sponsor Promo Kit</span>
+    <h1>THE <span class="y">SECRET SAUCE</span></h1>
+    <p class="sub">Everything you need to fill the room, John, in three simple steps: grab the flyer, post the scripts, and send the personal invites.</p>
+    <a class="hero-cta" href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">🎟️ Open the registration page</a>
+    <div class="quicknav">
+      <a href="#why">💡 Why it works</a>
+      <a href="#flyer">🖼️ 1 · Grab the flyer</a>
+      <a href="#plan">📣 2 · Post on social</a>
+      <a href="#texts">✉️ 3 · Emails &amp; texts</a>
+      <a href="#vibe">📸 Event photos</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- WHY -->
+  <section class="section reveal" id="why">
+    <div class="section-head"><span class="num">★</span><h2>Why this works: it's personal</h2></div>
+    <div class="why">
+      <h3>📣 Posts fill seats. People fill rooms.</h3>
+      <p>Social posts create awareness, but the registrations almost always come from a <b>direct, personal touch</b>. A public post is easy to scroll past. A text with someone's name on it is not. The sponsors who pack the room are the ones who personally reach out to 20 to 40 people they actually know.</p>
+      <p style="margin-bottom:0">Treat this as a chance to <b>add value to your network</b>. You're handing them a genuinely useful business lunch, not asking for a favor. Aim for this mix:</p>
+      <div class="pillars">
+        <div class="pillar"><span class="em">📞</span><b>Phone calls</b><small>Highest conversion. Call your 10 to 15 best relationships personally. 60 seconds: "I'm sponsoring this, I'd love for you to be my guest."</small></div>
+        <div class="pillar"><span class="em">💬</span><b>Texts</b><small>The workhorse. Personal, hard to ignore, easy to reply. Send the templates below one-to-one, never as a mass blast.</small></div>
+        <div class="pillar"><span class="em">✉️</span><b>Emails</b><small>Great for a broader list and people you reach professionally. Send it and follow up.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 1: FLYER (beginning) -->
+  <section class="section reveal" id="flyer">
+    <div class="section-head"><span class="num">1</span><h2><span class="step-label">Step 1</span>Grab your flyer</h2></div>
+    <p class="section-sub">👉 Start here. Download the flyer and keep it handy, then attach it to every post, text, and email below. Visuals get far more engagement.</p>
+    <div class="flyer-wrap">
+      <div class="flyer-img">
+        <img id="flyerImg"
+             src="secret-sauce-flyer.png"
+             alt="The Secret Sauce event flyer">
+      </div>
+      <div class="flyer-side">
+        <h3>The official Secret Sauce flyer</h3>
+        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text or email attachment.</p>
+        <div class="actions">
+          <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
+          <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
+          <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
+        </div>
+        <p class="note">If the download button doesn't trigger on your browser, click "Open full size," then right-click (or press &amp; hold on mobile) and choose Save Image.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2: PLAN -->
+  <section class="section reveal" id="plan">
+    <div class="section-head"><span class="num">2</span><h2><span class="step-label">Step 2</span>Post on social</h2></div>
+    <p class="section-sub">👆 Tap any card to open the script. Hit <b>Copy</b>, then use the colored buttons to jump straight to LinkedIn, Facebook, or Instagram with your text on the clipboard. Just paste, attach the flyer, and post.</p>
+
+    <div class="timeline">
+
+      <!-- STEP: Two weeks out -->
+      <div class="step open">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when"><div class="d">Jun 10</div><div class="m">2 wks out</div></div>
+            <div class="card-meta">
+              <div class="tag">📣 Social post</div>
+              <h3>Put it on the radar</h3>
+              <p>First awareness post. Plant the seed early.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill post">Post to LinkedIn · Facebook · Instagram</span>
+            <div class="script" id="s1">🚀 Local business friends, I wanted to put this on your radar.
+
+I'm sponsoring an event on Wednesday, June 24 called The Secret Sauce, hosted by The Average Joe's MBA in Loomis.
+
+I've seen what these guys teach, and it's excellent. It's not a fluffy marketing seminar where you leave with a notebook full of buzzwords and no actual plan.
+
+It's a practical lunch for business owners who want more leads, better marketing clarity, stronger referrals, and more people actually walking through the door.
+
+Brandon and Chris are both local business owners, so they teach from real experience. What has worked. What has failed. What cost money. What they would do differently.
+
+Details:
+
+💰 $25 ticket
+🍽️ Lunch included
+📍 High-Hand Brewing Company, 3750 Taylor Rd, Loomis
+🗓️ Wednesday, June 24
+⏰ Doors &amp; lunch at 11:30 AM, presentation at 12:00 PM (noon)
+🤝 Open networking after
+
+If you own a business, work with business owners, or know someone trying to grow, I'd love to see you there.
+
+Grab your spot here:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('s1',this)">📋 Copy script</button>
+              <a class="btn btn-ghost" href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">🎟️ Reg. link</a>
+            </div>
+            <div class="share-row" data-script="s1">
+              <span class="lbl">Post to:</span>
+              <a class="sbtn sb-li" title="LinkedIn" onclick="copyEl('s1')" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener">in</a>
+              <a class="sbtn sb-fb" title="Facebook" onclick="copyEl('s1')" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faveragejoemba.podia.com%2Fthe-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">f</a>
+              <a class="sbtn sb-ig" title="Instagram (paste in app)" onclick="copyEl('s1')" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.4" fill="#fff"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP: Week of -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when"><div class="d">Jun 22</div><div class="m">Week of</div></div>
+            <div class="card-meta">
+              <div class="tag">📣 Social post</div>
+              <h3>"This week" reminder</h3>
+              <p>Build urgency as the date gets close.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill post">Post to LinkedIn · Facebook · Instagram</span>
+            <div class="script" id="s2">🚀 This Wednesday is The Secret Sauce in Loomis, and I'm proud to be sponsoring it.
+
+If you're a local business owner, this is one of those events that is actually worth stepping away from the day-to-day chaos for.
+
+The focus is simple:
+
+How do you get more leads?
+How do you get your phone ringing?
+How do you stop wasting money on marketing that sounds good but does nothing?
+How do you build stronger referral flow?
+
+Brandon and Chris from The Average Joe's MBA will be sharing practical lessons from their own businesses. Not theory. Not a pitch. Just real stuff from people who are actually building businesses too.
+
+💰 $25 ticket
+🍽️ Lunch included
+📍 High-Hand Brewing Company, 3750 Taylor Rd, Loomis
+🗓️ Wednesday, June 24
+⏰ Doors &amp; lunch at 11:30 AM, presentation at 12:00 PM (noon)
+🤝 Open networking after
+
+Seats are limited, so grab yours here:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('s2',this)">📋 Copy script</button>
+              <a class="btn btn-ghost" href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">🎟️ Reg. link</a>
+            </div>
+            <div class="share-row" data-script="s2">
+              <span class="lbl">Post to:</span>
+              <a class="sbtn sb-li" title="LinkedIn" onclick="copyEl('s2')" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener">in</a>
+              <a class="sbtn sb-fb" title="Facebook" onclick="copyEl('s2')" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faveragejoemba.podia.com%2Fthe-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">f</a>
+              <a class="sbtn sb-ig" title="Instagram (paste in app)" onclick="copyEl('s2')" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.4" fill="#fff"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP: Day before -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when"><div class="d">Jun 23</div><div class="m">Day before</div></div>
+            <div class="card-meta">
+              <div class="tag">📣 Social post</div>
+              <h3>"Tomorrow!" last call</h3>
+              <p>Final public nudge before the doors open.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill post">Post to LinkedIn · Facebook · Instagram</span>
+            <div class="script" id="s3">🚀 Tomorrow is The Secret Sauce business lunch in Loomis.
+
+I'm sponsoring this event because I believe local business owners need more practical conversations about what actually works.
+
+Not more vague advice.
+Not more "post more on social media" nonsense.
+Not another event where everyone politely nods and secretly checks email.
+
+This is about real-world marketing, lead generation, referrals, and getting more customers in the door.
+
+Details:
+
+💰 $25 ticket
+🍽️ Lunch included
+📍 High-Hand Brewing Company, 3750 Taylor Rd, Loomis
+🗓️ Tomorrow, Wednesday, June 24
+⏰ Doors &amp; lunch at 11:30 AM, presentation at 12:00 PM (noon)
+🤝 Open networking after
+
+If you own a business, work with business owners, or know someone who could use a practical boost, come hang out with us.
+
+Grab your spot here:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('s3',this)">📋 Copy script</button>
+              <a class="btn btn-ghost" href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">🎟️ Reg. link</a>
+            </div>
+            <div class="share-row" data-script="s3">
+              <span class="lbl">Post to:</span>
+              <a class="sbtn sb-li" title="LinkedIn" onclick="copyEl('s3')" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener">in</a>
+              <a class="sbtn sb-fb" title="Facebook" onclick="copyEl('s3')" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faveragejoemba.podia.com%2Fthe-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">f</a>
+              <a class="sbtn sb-ig" title="Instagram (paste in app)" onclick="copyEl('s3')" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.4" fill="#fff"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP: Day of -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when"><div class="d">Jun 24</div><div class="m">Day of</div></div>
+            <div class="card-meta">
+              <div class="tag">🌅 Morning post + final texts</div>
+              <h3>"It's today" + last-minute texts</h3>
+              <p>Post this morning, then text anyone on the fence.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill post">Morning social post</span>
+            <div class="script" id="s4">🚀 Today's the day. The Secret Sauce business lunch in Loomis.
+
+Doors and lunch open at 11:30 AM, and Brandon and Chris from The Average Joe's MBA kick off the presentation at noon. Practical, real-world ideas for getting more clients, with no fluff and no pitch.
+
+There's still time to grab a seat ($25, lunch included). Come hang out:
+📍 High-Hand Brewing Company, 3750 Taylor Rd, Loomis
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca
+
+If you've been meaning to come, this is your sign. See you there. 🙌</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('s4',this)">📋 Copy script</button>
+              <a class="btn btn-ghost" href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">🎟️ Reg. link</a>
+            </div>
+            <div class="share-row" data-script="s4">
+              <span class="lbl">Post to:</span>
+              <a class="sbtn sb-li" title="LinkedIn" onclick="copyEl('s4')" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener">in</a>
+              <a class="sbtn sb-fb" title="Facebook" onclick="copyEl('s4')" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faveragejoemba.podia.com%2Fthe-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">f</a>
+              <a class="sbtn sb-ig" title="Instagram (paste in app)" onclick="copyEl('s4')" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.4" fill="#fff"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STEP 3: EMAILS & TEXTS (email first) -->
+  <section class="section reveal" id="texts">
+    <div class="section-head"><span class="num">3</span><h2><span class="step-label">Step 3</span>Send personal emails &amp; texts</h2></div>
+    <p class="section-sub">🎯 This is where seats get filled. Send these <b>one-to-one</b> to people you know. On mobile, the green <b>Text</b> button sends straight from your Messages app. Start about 10 days out and follow up with anyone who didn't reply.</p>
+
+    <div class="timeline">
+
+      <!-- Email invite (now first) -->
+      <div class="step open">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:#c25b18" title="Open in your email app" onclick="event.stopPropagation();return openEmail()"><div class="d" style="color:#fff">✉️</div><div class="m">Email</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">✉️ Email invite</div>
+              <h3>The full written invite</h3>
+              <p>For your broader list and pro contacts.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill email">Subject line</span>
+            <div class="script" id="esub">Local business event I'm sponsoring on June 24</div>
+            <button class="btn btn-copy" style="margin-top:8px" onclick="copyText('esub',this)">📋 Copy subject</button>
+
+            <span class="channel-pill email" style="margin-top:16px">Email body</span>
+            <div class="script" id="e1">Hi there,
+
+I wanted to personally invite you to a local business event I'm sponsoring called The Secret Sauce, hosted by The Average Joe's MBA.
+
+It's happening Wednesday, June 24 at High-Hand Brewing Company, 3750 Taylor Rd in Loomis. Doors and lunch open at 11:30 AM, and the presentation starts at 12:00 PM (noon). Lunch is included, and tickets are $25. Open networking to follow.
+
+The event is built for business owners and leaders who want practical, real-world ideas for getting more clients, improving lead flow, and making smarter growth decisions, without all the generic marketing hype.
+
+Brandon and Chris will be sharing lessons from their own businesses, including:
+
+• What's actually working right now
+• What has failed and cost real money
+• Simple systems and frameworks for stronger lead flow
+• Practical tools and ideas you can apply right away
+
+I'm sponsoring it because I believe local business owners need more honest conversations like this. Not theory. Not a pitch. Just practical help from people who are in the trenches too.
+
+Seats are limited, so if you'd like to come as my guest, you can reserve your spot here:
+
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca
+
+Hope to see you there,
+
+John Shanahan
+Lighthouse Window Cleaning</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('e1',this)">📋 Copy email body</button>
+              <a class="btn btn-send" href="#" onclick="return openEmail()">✉️ Open in email app</a>
+            </div>
+            <div class="howto">
+              <b class="h">📈 Sending to a bigger list?</b>
+              <ul>
+                <li><span class="k">✉️ Mail merge (best):</span> send personalized, one-to-one emails in bulk, each addressed to the person by name. Tutorials: <a href="https://support.google.com/mail/answer/12921167" target="_blank" rel="noopener">Gmail mail merge (Google)</a> and <a href="https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4" target="_blank" rel="noopener">Mail merge in Outlook (Microsoft)</a>.</li>
+                <li><span class="k">📨 BCC blast (fastest):</span> paste everyone into the BCC field so it goes out as one quick email and no one sees each other's address.</li>
+                <li><span class="k">📰 Newsletter:</span> already send a newsletter? Drop this invite into your next one for extra reach.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text invite (short) -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t1')"><div class="d" style="color:#fff">💬</div><div class="m">Text</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">💬 Text invite · short</div>
+              <h3>Quick personal invite</h3>
+              <p>For warm contacts. Fast and casual.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t1')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t1">Hey there, I'm sponsoring a local business event on Wednesday, June 24 in Loomis called The Secret Sauce.
+
+It's for business owners who want practical help with lead generation, marketing, referrals, and getting more customers in the door.
+
+Lunch is included, tickets are $25, and it's at High-Hand Brewing Company, 3750 Taylor Rd, Loomis. Doors and lunch open at 11:30 AM and the talk starts at noon. Open networking after.
+
+I'd love to have you as my guest. Here's the link:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t1',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t1" href="#" onclick="return openSMS('t1')">💬 Open in Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text invite (long) -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t2')"><div class="d" style="color:#fff">💬</div><div class="m">Text</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">💬 Text invite · long</div>
+              <h3>Fuller personal invite</h3>
+              <p>When you want to give a bit more context.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t2')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t2">Hey there, I wanted to personally invite you to an event I'm sponsoring called The Secret Sauce on Wednesday, June 24 in Loomis.
+
+It's for local business owners who want practical ways to get more clients without all the marketing fluff. Brandon and Chris from The Average Joe's MBA are sharing what's actually working, what they've learned the hard way, and simple strategies business owners can use right away.
+
+Doors and lunch open at 11:30 AM, the presentation starts at noon, lunch is included, and tickets are only $25. Open networking to follow.
+
+Here's the link if you want to grab a spot:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t2',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t2" href="#" onclick="return openSMS('t2')">💬 Open in Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text follow up -->
+      <div class="step">
+        <div class="dot"></div>
+        <div class="card">
+          <div class="card-top" onclick="toggle(this)">
+            <div class="when send" style="background:var(--green)" title="Tap to text" onclick="event.stopPropagation();return openSMS('t3')"><div class="d" style="color:#fff">🔁</div><div class="m">Final</div><span class="tap">Tap to send</span></div>
+            <div class="card-meta">
+              <div class="tag">🔁 Last-minute reminder</div>
+              <h3>Last-minute final reminder</h3>
+              <p>A final nudge for anyone who hasn't replied yet.</p>
+            </div>
+            <div class="chev">›</div>
+          </div>
+          <div class="card-body">
+            <span class="channel-pill text clickable" title="Tap to open in Messages" onclick="openSMS('t3')">💬 Send as a one-to-one text</span>
+            <div class="script" id="t3">Hey there, last-minute reminder before this one fills up.
+
+🚀 I'm sponsoring The Secret Sauce this Wednesday, June 24 in Loomis. It's a practical business lunch for local owners who want more leads and better marketing clarity.
+
+💰 $25 with lunch included. Doors at 11:30 AM, talk at noon.
+
+If you can make it, grab your seat here:
+🎟️ https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</div>
+            <div class="actions">
+              <button class="btn btn-copy" onclick="copyText('t3',this)">📋 Copy text</button>
+              <a class="btn btn-send sms-link" data-script="t3" href="#" onclick="return openSMS('t3')">💬 Open in Messages</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLYER AGAIN (end) -->
+  <section class="section reveal" id="flyer-end">
+    <div class="section-head"><span class="num">📥</span><h2>Need the flyer again?</h2></div>
+    <p class="section-sub">Here it is one more time. Download it or copy it straight to your clipboard, then attach it to whatever you're sending.</p>
+    <div class="flyer-wrap">
+      <div class="flyer-img">
+        <img id="flyerImg2"
+             src="secret-sauce-flyer.png"
+             alt="The Secret Sauce event flyer">
+      </div>
+      <div class="flyer-side">
+        <h3>The official Secret Sauce flyer</h3>
+        <p>Square format, works great on Instagram, Facebook, LinkedIn, and as a text or email attachment.</p>
+        <div class="actions">
+          <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
+          <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
+          <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
+        </div>
+        <p class="note">Tip: posts and texts with the flyer attached get noticed far more than text alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT VIBE GALLERY -->
+  <section class="section reveal" id="vibe">
+    <div class="section-head"><span class="num">📸</span><h2>What the room feels like</h2></div>
+    <p class="section-sub">A look at a past Secret Sauce lunch: real local owners, real conversations, real food. This is the vibe you're inviting people into. Tap any photo to enlarge.</p>
+    <div class="gallery">
+      <a class="feature" href="SecretSauceJuly20250003.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250003.jpg" alt="The Secret Sauce masterclass in session" loading="lazy"></a>
+      <a href="SecretSauceJuly20250006.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250006.jpg" alt="Business owners at The Secret Sauce" loading="lazy"></a>
+      <a href="SecretSauceJuly20250016.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250016.jpg" alt="Networking at The Secret Sauce" loading="lazy"></a>
+      <a href="FPD01149.jpg" target="_blank" rel="noopener"><img src="FPD01149.jpg" alt="The Secret Sauce event" loading="lazy"></a>
+      <a href="FPD01167.jpg" target="_blank" rel="noopener"><img src="FPD01167.jpg" alt="The Secret Sauce event" loading="lazy"></a>
+      <a href="SecretSauceJuly20250017.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250017.jpg" alt="Attendees at The Secret Sauce" loading="lazy"></a>
+      <a href="SecretSauceJuly20250031.jpg" target="_blank" rel="noopener"><img src="SecretSauceJuly20250031.jpg" alt="The Secret Sauce lunch" loading="lazy"></a>
+    </div>
+    <div class="actions" style="margin-top:14px;justify-content:center">
+      <button class="btn btn-copy" onclick="downloadAllPhotos()">⬇️ Download all photos</button>
+    </div>
+    <p class="gallery-note">📎 Feel free to drop one of these into a post or text. Nothing sells the room like seeing it full.</p>
+  </section>
+
+  <footer>
+    The Secret Sauce · Proudly presented by The Average Joe's MBA · Sponsored by John Shanahan, Lighthouse Window Cleaning<br>
+    <a href="https://averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca" target="_blank" rel="noopener">averagejoemba.podia.com/the-secret-sauce-wed-june-24th-loomis-ca</a> &nbsp;·&nbsp; <a href="https://averagejoemba.com/" target="_blank" rel="noopener">averagejoemba.com</a>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+  function toggle(el){
+    el.closest('.step').classList.toggle('open');
+  }
+  function showToast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(window._tt); window._tt=setTimeout(function(){t.classList.remove('show')},1700);
+  }
+  // decode HTML entities and copy
+  function getText(id){
+    var raw=document.getElementById(id).innerHTML;
+    var tmp=document.createElement('textarea'); tmp.innerHTML=raw;
+    return tmp.value.replace(/ /g,' ');
+  }
+  function rawCopy(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(res){
+      var ta=document.createElement('textarea'); ta.value=text;
+      ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
+      ta.select(); try{document.execCommand('copy')}catch(e){} document.body.removeChild(ta); res();
+    });
+  }
+  function copyText(id,btn){
+    rawCopy(getText(id)).then(function(){
+      if(btn){var o=btn.innerHTML; btn.classList.add('copied'); btn.innerHTML='✓ Copied!';
+        setTimeout(function(){btn.classList.remove('copied'); btn.innerHTML=o},1600);}
+      showToast('Copied to clipboard');
+    });
+  }
+  function copyEl(id){ rawCopy(getText(id)).then(function(){showToast('Script copied. Now paste and post.');}); }
+
+  function openSMS(id){
+    var body=encodeURIComponent(getText(id));
+    // iOS uses &body, Android uses ?body; &body works broadly when no number is set
+    window.location.href='sms:&body='+body;
+    showToast('Opening Messages…');
+    return false;
+  }
+  function openEmail(){
+    var subj=encodeURIComponent(getText('esub'));
+    var body=encodeURIComponent(getText('e1'));
+    window.location.href='mailto:?subject='+subj+'&body='+body;
+    showToast('Opening your email app…');
+    return false;
+  }
+
+  var FLYER_URL='secret-sauce-flyer.png';
+  function downloadFlyer(btn){
+    showToast('Preparing download…');
+    fetch(FLYER_URL,{mode:'cors'}).then(function(r){return r.blob()}).then(function(blob){
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=url; a.download='The-Secret-Sauce-Flyer.png';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      showToast('Flyer downloaded');
+    }).catch(function(){
+      window.open(FLYER_URL,'_blank');
+      showToast('Opened image. Right-click to save.');
+    });
+  }
+  function copyFlyer(btn){
+    showToast('Copying image…');
+    fetch(FLYER_URL,{mode:'cors'}).then(function(r){return r.blob()}).then(function(blob){
+      if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+        // convert to png blob explicitly via canvas to satisfy clipboard formats
+        var img=new Image(); img.crossOrigin='anonymous';
+        img.onload=function(){
+          var c=document.createElement('canvas'); c.width=img.naturalWidth; c.height=img.naturalHeight;
+          c.getContext('2d').drawImage(img,0,0);
+          c.toBlob(function(pngBlob){
+            navigator.clipboard.write([new ClipboardItem({'image/png':pngBlob})]).then(function(){
+              showToast('Image copied to clipboard');
+            }).catch(function(){showToast('Copy not supported. Use Download instead.');});
+          },'image/png');
+        };
+        img.onerror=function(){showToast('Copy not supported. Use Download instead.');};
+        img.src=URL.createObjectURL(blob);
+      }else{
+        showToast('Copy not supported here. Use Download instead.');
+      }
+    }).catch(function(){showToast('Copy blocked. Use Download instead.');});
+  }
+
+  // Download every event photo
+  var PHOTOS=['SecretSauceJuly20250003.jpg','SecretSauceJuly20250006.jpg','SecretSauceJuly20250016.jpg','FPD01149.jpg','FPD01167.jpg','SecretSauceJuly20250017.jpg','SecretSauceJuly20250031.jpg'];
+  function downloadAllPhotos(){
+    showToast('Downloading all '+PHOTOS.length+' photos…');
+    PHOTOS.forEach(function(src,i){
+      setTimeout(function(){
+        var a=document.createElement('a'); a.href=src; a.download=src;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i*400);
+    });
+  }
+
+  // Reveal-on-scroll animations
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){el.classList.add('in')});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  })();
+</script>
+</body>
+</html>
