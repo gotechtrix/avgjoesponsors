@@ -21,7 +21,7 @@
   .back{display:inline-flex;align-items:center;gap:7px;margin:22px 0 0;font-size:14.5px;font-weight:700;color:var(--maroon);text-decoration:none}
   .back:hover{text-decoration:underline}
   header{text-align:center;padding:18px 18px 8px}
-  header img{width:104px;height:104px;display:block;margin:0 auto 14px;filter:drop-shadow(0 6px 16px rgba(99,60,20,.18))}
+  header img{height:92px;width:auto;max-width:280px;display:block;margin:0 auto 14px;filter:drop-shadow(0 4px 12px rgba(99,60,20,.12))}
   header .lbl{font-size:12.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold)}
   header h1{font-size:clamp(26px,5vw,36px);font-weight:900;letter-spacing:-.5px;margin-top:2px}
   header p{color:var(--muted);font-size:16px;margin-top:6px}
@@ -40,10 +40,13 @@
   .card.has-thumb{display:flex;gap:16px;align-items:center}
   .card .thumb{flex:0 0 auto;width:96px;height:96px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6eede}
   .card .cbody{flex:1 1 auto;min-width:0}
+  .card.has-banner{display:block;padding:0}
+  .card.has-banner .bthumb{width:100%;aspect-ratio:1920/1005;object-fit:cover;display:block;background:#fff;border-bottom:1px solid var(--line)}
+  .card.has-banner .cbody{padding:18px 22px}
   @media(max-width:560px){.card .thumb{width:76px;height:76px}}
   footer{text-align:center;color:var(--muted);font-size:14.5px;margin-top:46px;line-height:1.8}
   footer a{color:var(--maroon);font-weight:700}
-  @media(max-width:560px){header img{width:88px;height:88px}.wrap{padding:0 14px 56px}}
+  @media(max-width:560px){header img{height:74px;width:auto}.wrap{padding:0 14px 56px}}
 </style>
 </head>
 <body>
@@ -51,7 +54,7 @@
     <a class="back" href="/">← All sponsors</a>
   </div>
   <header>
-    <a href="/"><img src="/logo.svg" alt="The Average Joe's MBA"></a>
+    <a href="/"><img src="/averagejoe-logo.jpg" alt="The Average Joe's MBA" onerror="this.onerror=null;this.src='/logo.svg'"></a>
     <div class="lbl">★ Event Sponsor</div>
     <h1>Angel Morales</h1>
     <p><a href="https://angelsjunkanddump.com/" target="_blank" rel="noopener">Angels Junk &amp; Dump ↗</a></p>
@@ -59,8 +62,8 @@
 
   <div class="wrap">
     <div class="lead"><h2>Sponsored events</h2><span class="rule"></span></div>
-    <a class="card has-thumb" href="/angelmorales/secret-sauce-elk-grove-september-1-2026/">
-      <img class="thumb" src="/angelmorales/secret-sauce-elk-grove-september-1-2026/secret-sauce-flyer.png" alt="The Secret Sauce flyer">
+    <a class="card has-banner" href="/angelmorales/secret-sauce-elk-grove-september-1-2026/">
+      <img class="bthumb" src="/angelmorales/secret-sauce-elk-grove-september-1-2026/event-banner.png" alt="The Secret Sauce event banner">
       <div class="cbody">
         <div class="lbl">🗓️ Tuesday, September 1, 2026 · Elk Grove, CA</div>
         <h3>The Secret Sauce</h3>

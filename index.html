@@ -19,7 +19,7 @@
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
   .wrap{max-width:880px;margin:0 auto;padding:0 18px 70px}
   header{text-align:center;padding:48px 18px 18px}
-  header img{width:148px;height:148px;display:block;margin:0 auto 16px;filter:drop-shadow(0 6px 16px rgba(99,60,20,.18))}
+  header img{height:112px;width:auto;max-width:320px;display:block;margin:0 auto 16px;filter:drop-shadow(0 4px 12px rgba(99,60,20,.12))}
   header h1{font-size:clamp(26px,5vw,38px);font-weight:900;letter-spacing:-.5px}
   header p{color:var(--muted);font-size:17px;margin-top:8px;max-width:540px;margin-left:auto;margin-right:auto}
   .lead{display:flex;align-items:center;gap:10px;margin:38px 0 14px}
@@ -34,18 +34,21 @@
   .card .co{font-size:15px;color:var(--muted);margin-top:2px}
   .card .meta{margin-top:14px;font-size:14px;font-weight:700;color:var(--maroon);display:flex;align-items:center;gap:8px}
   .card.has-thumb{display:flex;gap:16px;align-items:center}
-  .card .thumb{flex:0 0 auto;width:92px;height:92px;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#f6eede}
+  .card .thumb{flex:0 0 auto;width:92px;height:92px;border-radius:12px;object-fit:contain;border:1px solid var(--line);background:#fff;padding:6px}
   .card .cbody{flex:1 1 auto;min-width:0}
+  .card.has-banner{display:block;padding:0}
+  .card.has-banner .bthumb{width:100%;aspect-ratio:1920/1005;object-fit:cover;display:block;background:#fff;border-bottom:1px solid var(--line)}
+  .card.has-banner .cbody{padding:18px 22px}
   @media(max-width:560px){.card .thumb{width:74px;height:74px}}
   .pill{display:inline-block;background:#fdebcb;color:#9a6a12;border-radius:20px;padding:3px 10px;font-size:12.5px;font-weight:800}
   footer{text-align:center;color:var(--muted);font-size:14.5px;margin-top:48px;line-height:1.8}
   footer a{color:var(--maroon);font-weight:700}
-  @media(max-width:560px){header{padding:34px 16px 10px}header img{width:120px;height:120px}.wrap{padding:0 14px 56px}}
+  @media(max-width:560px){header{padding:34px 16px 10px}header img{height:84px;width:auto}.wrap{padding:0 14px 56px}}
 </style>
 </head>
 <body>
   <header>
-    <a href="/"><img src="/logo.svg" alt="The Average Joe's MBA"></a>
+    <a href="/"><img src="/averagejoe-logo.jpg" alt="The Average Joe's MBA" onerror="this.onerror=null;this.src='/logo.svg'"></a>
     <h1>Sponsor Promo Kits</h1>
     <p>Ready-to-use marketing toolkits that help our sponsors fill the room: flyers, scripts, and step-by-step plans.</p>
   </header>
@@ -54,7 +57,7 @@
     <div class="lead"><h2>Our sponsors</h2><span class="rule"></span></div>
     <div class="grid">
       <a class="card has-thumb" href="/colbybell/">
-        <img class="thumb" src="/logo.svg" alt="The Average Joe's MBA">
+        <img class="thumb" src="/averagejoe-logo.jpg" alt="The Average Joe's MBA" onerror="this.onerror=null;this.src='/logo.svg'">
         <div class="cbody">
           <div class="lbl">★ Sponsor</div>
           <h3>Colby Bell</h3>
@@ -63,7 +66,7 @@
         </div>
       </a>
       <a class="card has-thumb" href="/angelmorales/">
-        <img class="thumb" src="/logo.svg" alt="The Average Joe's MBA">
+        <img class="thumb" src="/averagejoe-logo.jpg" alt="The Average Joe's MBA" onerror="this.onerror=null;this.src='/logo.svg'">
         <div class="cbody">
           <div class="lbl">★ Sponsor</div>
           <h3>Angel Morales</h3>
@@ -75,8 +78,8 @@
 
     <div class="lead"><h2>Upcoming events</h2><span class="rule"></span></div>
     <div class="grid">
-      <a class="card has-thumb" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
-        <img class="thumb" src="/colbybell/secret-sauce-elk-grove-july-23-2026/secret-sauce-flyer.png" alt="The Secret Sauce flyer">
+      <a class="card has-banner" href="/colbybell/secret-sauce-elk-grove-july-23-2026/">
+        <img class="bthumb" src="/colbybell/secret-sauce-elk-grove-july-23-2026/event-banner.png" alt="The Secret Sauce event banner">
         <div class="cbody">
           <div class="lbl">🗓️ Thu, July 23, 2026 · Elk Grove, CA</div>
           <h3>The Secret Sauce</h3>
@@ -84,8 +87,8 @@
           <div class="meta">Open the promo kit →</div>
         </div>
       </a>
-      <a class="card has-thumb" href="/angelmorales/secret-sauce-elk-grove-september-1-2026/">
-        <img class="thumb" src="/angelmorales/secret-sauce-elk-grove-september-1-2026/secret-sauce-flyer.png" alt="The Secret Sauce flyer">
+      <a class="card has-banner" href="/angelmorales/secret-sauce-elk-grove-september-1-2026/">
+        <img class="bthumb" src="/angelmorales/secret-sauce-elk-grove-september-1-2026/event-banner.png" alt="The Secret Sauce event banner">
         <div class="cbody">
           <div class="lbl">🗓️ Tue, September 1, 2026 · Elk Grove, CA</div>
           <h3>The Secret Sauce</h3>
