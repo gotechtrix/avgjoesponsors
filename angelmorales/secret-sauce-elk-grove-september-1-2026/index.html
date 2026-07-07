@@ -316,9 +316,35 @@
   .lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
   .lb-download{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:10px 22px;font-size:14.5px;font-weight:700;text-decoration:none;opacity:.5;transition:opacity .18s ease,background .18s ease}
   .lb-download:hover,.lb-download:focus{opacity:1;background:rgba(255,255,255,.24)}
+  /* top navigation */
+  .topnav{display:flex;flex-wrap:wrap;gap:8px;max-width:900px;margin:0 auto;padding:14px 16px 2px}
+  .topnav .tn-link{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:800;padding:8px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  .topnav .tn-link:hover{transform:translateY(-1px);background:#fffdf7;box-shadow:0 5px 14px rgba(0,0,0,.09)}
+  /* expand affordance */
+  .expand-tip{display:flex;align-items:center;gap:11px;background:linear-gradient(90deg,#fff4d2,#fffdf6);border:1px solid var(--gold);border-radius:14px;padding:12px 16px;margin:0 0 16px;font-size:15px;font-weight:700;color:#6b5312;box-shadow:0 3px 12px rgba(214,164,28,.12)}
+  .expand-tip .ico{font-size:22px;line-height:1}
+  .tap-hint{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;letter-spacing:.2px;color:var(--gold-dark);background:#fff4d2;border:1px solid var(--gold);border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .step.open .tap-hint{display:none}
+  @keyframes chevNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+  .step:not(.open) .chev{animation:chevNudge 1.5s ease-in-out infinite;color:var(--gold-dark)}
+  /* mark-done */
+  .done-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .btn-done{display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:1.5px solid #1f9d57;background:#fff;color:#178048;font-size:14px;font-weight:800;padding:9px 16px;border-radius:10px;transition:background .15s ease,color .15s ease,transform .12s ease}
+  .btn-done:hover{background:#f2fbf5}
+  .btn-done:active{transform:scale(.97)}
+  .done-stamp{font-size:13px;font-weight:700;color:var(--muted)}
+  .step.is-done .btn-done{background:#1f9d57;color:#fff;border-color:#1f9d57}
+  .step.is-done .card{box-shadow:0 0 0 2px #1f9d57 inset,var(--shadow)}
+  .step.is-done .done-stamp{color:#178048}
+  .done-badge{display:none}
+  .step.is-done .done-badge{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:800;color:#fff;background:#1f9d57;border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:middle}
 </style>
 </head>
 <body>
+<nav class="topnav">
+  <a class="tn-link" href="/">🏠 All sponsors &amp; events</a>
+  <a class="tn-link" href="/angelmorales/">📅 Angel Morales's events</a>
+</nav>
 
 <!-- ===== TOP BANNER ===== -->
 <div class="banner-strip">
@@ -971,5 +997,95 @@ If you can make it, grab your seat here:
     });
   })();
   </script>
+<script>
+(function(){
+  var PAGE_ID='angelmorales-secret-sauce-2026-09-01';
+  var API='/api/state';
+  var steps=[].slice.call(document.querySelectorAll('.timeline .step'));
+  if(!steps.length) return;
+
+  // clear "tap each card" tip above every timeline
+  document.querySelectorAll('.timeline').forEach(function(tl){
+    var tip=document.createElement('div');
+    tip.className='expand-tip';
+    tip.innerHTML='<span class="ico">👆</span><span>Tap each card to open it, copy the script, then hit <b>Mark this step done</b>. Your progress saves for everyone in real time.</span>';
+    tl.parentNode.insertBefore(tip,tl);
+  });
+
+  // per-card affordances + done button
+  var stamps=[];
+  steps.forEach(function(st,i){
+    var top=st.querySelector('.card-top');
+    if(top){
+      var chev=top.querySelector('.chev');
+      var hint=document.createElement('span');
+      hint.className='tap-hint'; hint.textContent='Tap to open';
+      if(chev){top.insertBefore(hint,chev);} else {top.appendChild(hint);}
+      var tag=st.querySelector('.card-top .tag');
+      if(tag){var b=document.createElement('span'); b.className='done-badge'; b.textContent='✓ Done'; tag.appendChild(b);}
+    }
+    var body=st.querySelector('.card-body');
+    if(body){
+      var row=document.createElement('div'); row.className='done-row';
+      var btn=document.createElement('button'); btn.type='button'; btn.className='btn-done'; btn.innerHTML='✓ Mark this step done';
+      var stamp=document.createElement('span'); stamp.className='done-stamp';
+      row.appendChild(btn); row.appendChild(stamp); body.appendChild(row);
+      stamps[i]=stamp;
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        var nowDone=!st.classList.contains('is-done');
+        applyStep(i,nowDone,nowDone?new Date().toISOString():null);
+        save(i,nowDone);
+      });
+    }
+  });
+
+  function fmt(iso){
+    if(!iso) return '';
+    var d=new Date(iso);
+    if(isNaN(d.getTime())) return '';
+    return d.toLocaleString(undefined,{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});
+  }
+  function applyStep(i,done,at){
+    var st=steps[i]; if(!st) return;
+    var btn=st.querySelector('.btn-done');
+    if(done){
+      st.classList.add('is-done');
+      if(btn) btn.innerHTML='✓ Done · tap to undo';
+      if(stamps[i]) stamps[i].textContent='Completed '+fmt(at);
+    }else{
+      st.classList.remove('is-done');
+      if(btn) btn.innerHTML='✓ Mark this step done';
+      if(stamps[i]) stamps[i].textContent='';
+    }
+  }
+  function applyState(state){
+    var s=(state&&state.steps)||{};
+    steps.forEach(function(st,i){
+      var rec=s[i];
+      applyStep(i,!!(rec&&rec.done),rec&&rec.at);
+    });
+  }
+  function load(){
+    fetch(API+'?page='+encodeURIComponent(PAGE_ID),{cache:'no-store'})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){if(j&&j.steps) applyState(j);})
+      .catch(function(){});
+  }
+  function save(i,done){
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({page:PAGE_ID,step:i,done:done})})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(j){
+        if(j&&j.steps){applyState(j); if(typeof showToast==='function') showToast(done?'Saved. Everyone sees this now.':'Marked not done.');}
+        else if(typeof showToast==='function'){showToast('Saved on your screen (server not reachable yet).');}
+      })
+      .catch(function(){ if(typeof showToast==='function') showToast('Saved on your screen (server not reachable yet).'); });
+  }
+  load();
+  setInterval(function(){if(!document.hidden) load();},6000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden) load();});
+})();
+</script>
 </body>
 </html>
