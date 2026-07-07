@@ -310,6 +310,12 @@
     .headshot,.headshot-ph{width:96px;height:96px}
     .sbtn{width:38px;height:38px}
   }
+  .flyer-img img{cursor:zoom-in}
+  .lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(20,14,8,.93);align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:20px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:82vh;width:auto;height:auto;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+  .lb-download{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:10px 22px;font-size:14.5px;font-weight:700;text-decoration:none;opacity:.5;transition:opacity .18s ease,background .18s ease}
+  .lb-download:hover,.lb-download:focus{opacity:1;background:rgba(255,255,255,.24)}
 </style>
 </head>
 <body>
@@ -403,9 +409,8 @@
         <div class="actions">
           <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
           <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
-          <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
         </div>
-        <p class="note">If the download button doesn't trigger on your browser, click "Open full size," then right-click (or press &amp; hold on mobile) and choose Save Image.</p>
+        <p class="note">If the download button doesn't trigger on your browser, tap the flyer to enlarge it, then press &amp; hold (or right-click) and choose Save Image.</p>
       </div>
     </div>
   </section>
@@ -792,7 +797,6 @@ If you can make it, grab your seat here:
         <div class="actions">
           <button class="btn btn-copy" onclick="downloadFlyer(this)">⬇️ Download flyer</button>
           <button class="btn btn-ghost" onclick="copyFlyer(this)">📋 Copy image</button>
-          <a class="btn btn-ghost" href="secret-sauce-flyer.png" target="_blank" rel="noopener">🔍 Open full size</a>
         </div>
         <p class="note">Tip: posts and texts with the flyer attached get noticed far more than text alone.</p>
       </div>
@@ -939,5 +943,33 @@ If you can make it, grab your seat here:
     els.forEach(function(el){io.observe(el)});
   })();
 </script>
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lbImg" src="" alt="Enlarged image">
+    <a class="lb-download" id="lbDownload" href="" download onclick="event.stopPropagation()">⬇️ Download</a>
+  </div>
+  <script>
+  (function(){
+    function open(src){
+      var lb=document.getElementById('lightbox');
+      document.getElementById('lbImg').src=src;
+      var dl=document.getElementById('lbDownload');
+      dl.href=src; dl.setAttribute('download','');
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    window.openLightbox=open;
+    window.closeLightbox=function(){
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow='';
+    };
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')window.closeLightbox();});
+    document.querySelectorAll('.flyer-img img').forEach(function(img){
+      img.addEventListener('click',function(){open(img.getAttribute('src'));});
+    });
+    document.querySelectorAll('.gallery a').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();open(a.getAttribute('href'));});
+    });
+  })();
+  </script>
 </body>
 </html>
