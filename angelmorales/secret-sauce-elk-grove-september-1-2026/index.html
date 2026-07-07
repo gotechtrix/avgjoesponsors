@@ -323,21 +323,29 @@
   /* expand affordance */
   .expand-tip{display:flex;align-items:center;gap:11px;background:linear-gradient(90deg,#fff4d2,#fffdf6);border:1px solid var(--gold);border-radius:14px;padding:12px 16px;margin:0 0 16px;font-size:15px;font-weight:700;color:#6b5312;box-shadow:0 3px 12px rgba(214,164,28,.12)}
   .expand-tip .ico{font-size:22px;line-height:1}
-  .tap-hint{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;letter-spacing:.2px;color:var(--gold-dark);background:#fff4d2;border:1px solid var(--gold);border-radius:999px;padding:3px 10px;white-space:nowrap}
-  .step.open .tap-hint{display:none}
-  @keyframes chevNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
-  .step:not(.open) .chev{animation:chevNudge 1.5s ease-in-out infinite;color:var(--gold-dark)}
-  /* mark-done */
-  .done-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
-  .btn-done{display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:1.5px solid #1f9d57;background:#fff;color:#178048;font-size:14px;font-weight:800;padding:9px 16px;border-radius:10px;transition:background .15s ease,color .15s ease,transform .12s ease}
-  .btn-done:hover{background:#f2fbf5}
-  .btn-done:active{transform:scale(.97)}
-  .done-stamp{font-size:13px;font-weight:700;color:var(--muted)}
-  .step.is-done .btn-done{background:#1f9d57;color:#fff;border-color:#1f9d57}
+  /* header action group: [Mark as done] [Expand >] */
+  .card-actions{flex:0 0 auto;display:flex;align-items:center;gap:8px}
+  .mark-btn{display:inline-flex;align-items:center;gap:5px;cursor:pointer;border:1.5px solid #1f9d57;background:#fff;color:#178048;font-size:12.5px;font-weight:800;padding:6px 11px;border-radius:9px;white-space:nowrap;transition:background .15s ease,color .15s ease,transform .12s ease}
+  .mark-btn:hover{background:#f2fbf5}
+  .mark-btn:active{transform:scale(.96)}
+  .step.is-done .mark-btn{background:#1f9d57;color:#fff;border-color:#1f9d57}
+  .expand-btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:12.5px;font-weight:800;padding:6px 11px;border-radius:9px;white-space:nowrap;transition:background .15s ease,box-shadow .15s ease}
+  .expand-btn:hover{background:#fffdf7;box-shadow:0 3px 9px rgba(0,0,0,.07)}
+  .expand-btn .ex-chev{font-size:18px;line-height:1;transition:transform .25s ease;color:var(--gold-dark)}
+  @keyframes exBlink{0%,100%{opacity:1}50%{opacity:.12}}
+  .step:not(.open) .expand-btn .ex-chev{animation:exBlink 1s ease-in-out infinite}
+  .step.open .expand-btn .ex-chev{transform:rotate(90deg)}
+  .chev{display:none}
+  /* completion timestamp under the card title */
+  .done-stamp{display:none;margin-top:6px;font-size:12.5px;font-weight:800;color:#178048}
+  .step.is-done .done-stamp{display:block}
   .step.is-done .card{box-shadow:0 0 0 2px #1f9d57 inset,var(--shadow)}
-  .step.is-done .done-stamp{color:#178048}
-  .done-badge{display:none}
-  .step.is-done .done-badge{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:800;color:#fff;background:#1f9d57;border-radius:999px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+  /* email top action bar */
+  .actions.email-top{margin-top:0;margin-bottom:8px}
+  @media(max-width:560px){
+    .card-actions{flex-direction:column;gap:6px;align-items:stretch}
+    .mark-btn,.expand-btn{justify-content:center;font-size:12px;padding:6px 9px}
+  }
 </style>
 </head>
 <body>
@@ -665,9 +673,13 @@ If you've been meaning to come, this is your sign. See you there. 🙌</div>
             <div class="chev">›</div>
           </div>
           <div class="card-body">
+            <div class="actions email-top">
+              <button class="btn btn-copy" onclick="copyText('esub',this)">📋 Copy subject</button>
+              <button class="btn btn-copy" onclick="copyText('e1',this)">📋 Copy email body</button>
+              <a class="btn btn-send" href="#" onclick="return openEmail()">✉️ Open in email app</a>
+            </div>
             <span class="channel-pill email">Subject line</span>
             <div class="script" id="esub">Local business event I'm sponsoring on September 1</div>
-            <button class="btn btn-copy" style="margin-top:8px" onclick="copyText('esub',this)">📋 Copy subject</button>
 
             <span class="channel-pill email" style="margin-top:16px">Email body</span>
             <div class="script" id="e1">Hi there,
@@ -695,10 +707,6 @@ Hope to see you there,
 
 Angel Morales
 Angels Junk And Dump</div>
-            <div class="actions">
-              <button class="btn btn-copy" onclick="copyText('e1',this)">📋 Copy email body</button>
-              <a class="btn btn-send" href="#" onclick="return openEmail()">✉️ Open in email app</a>
-            </div>
             <div class="howto">
               <b class="h">📈 Sending to a bigger list?</b>
               <ul>
@@ -1004,42 +1012,43 @@ If you can make it, grab your seat here:
   var steps=[].slice.call(document.querySelectorAll('.timeline .step'));
   if(!steps.length) return;
 
-  // clear "tap each card" tip above every timeline
   document.querySelectorAll('.timeline').forEach(function(tl){
     var tip=document.createElement('div');
     tip.className='expand-tip';
-    tip.innerHTML='<span class="ico">👆</span><span>Tap each card to open it, copy the script, then hit <b>Mark this step done</b>. Your progress saves for everyone in real time.</span>';
+    tip.innerHTML='<span class="ico">👆</span><span>Open each card, copy the script, then hit <b>Mark as done</b>. Your progress saves for everyone in real time.</span>';
     tl.parentNode.insertBefore(tip,tl);
   });
 
-  // per-card affordances + done button
   var stamps=[];
   steps.forEach(function(st,i){
-    var top=st.querySelector('.card-top');
-    if(top){
-      var chev=top.querySelector('.chev');
-      var hint=document.createElement('span');
-      hint.className='tap-hint'; hint.textContent='Tap to open';
-      if(chev){top.insertBefore(hint,chev);} else {top.appendChild(hint);}
-      var tag=st.querySelector('.card-top .tag');
-      if(tag){var b=document.createElement('span'); b.className='done-badge'; b.textContent='✓ Done'; tag.appendChild(b);}
-    }
-    var body=st.querySelector('.card-body');
-    if(body){
-      var row=document.createElement('div'); row.className='done-row';
-      var btn=document.createElement('button'); btn.type='button'; btn.className='btn-done'; btn.innerHTML='✓ Mark this step done';
-      var stamp=document.createElement('span'); stamp.className='done-stamp';
-      row.appendChild(btn); row.appendChild(stamp); body.appendChild(row);
-      stamps[i]=stamp;
-      btn.addEventListener('click',function(e){
-        e.stopPropagation();
-        var nowDone=!st.classList.contains('is-done');
-        applyStep(i,nowDone,nowDone?new Date().toISOString():null);
-        save(i,nowDone);
-      });
-    }
+    var top=st.querySelector('.card-top'); if(!top) return;
+    var meta=st.querySelector('.card-meta');
+    var stamp=document.createElement('div'); stamp.className='done-stamp';
+    if(meta) meta.appendChild(stamp); stamps[i]=stamp;
+
+    var group=document.createElement('div'); group.className='card-actions';
+    var mark=document.createElement('button'); mark.type='button'; mark.className='mark-btn';
+    mark.innerHTML='✓ <span class="mk-txt">Mark as done</span>';
+    var exp=document.createElement('button'); exp.type='button'; exp.className='expand-btn';
+    exp.innerHTML='<span class="ex-txt">Expand</span><span class="ex-chev">›</span>';
+    group.appendChild(mark); group.appendChild(exp);
+    var chev=top.querySelector('.chev');
+    if(chev){top.insertBefore(group,chev);} else {top.appendChild(group);}
+
+    mark.addEventListener('click',function(e){
+      e.stopPropagation();
+      var nowDone=!st.classList.contains('is-done');
+      applyStep(i,nowDone,nowDone?new Date().toISOString():null);
+      save(i,nowDone);
+    });
+    top.addEventListener('click',function(){ syncExp(st); });
+    syncExp(st);
   });
 
+  function syncExp(st){
+    var t=st.querySelector('.expand-btn .ex-txt');
+    if(t) t.textContent=st.classList.contains('open')?'Collapse':'Expand';
+  }
   function fmt(iso){
     if(!iso) return '';
     var d=new Date(iso);
@@ -1048,14 +1057,14 @@ If you can make it, grab your seat here:
   }
   function applyStep(i,done,at){
     var st=steps[i]; if(!st) return;
-    var btn=st.querySelector('.btn-done');
+    var t=st.querySelector('.mark-btn .mk-txt');
     if(done){
       st.classList.add('is-done');
-      if(btn) btn.innerHTML='✓ Done · tap to undo';
-      if(stamps[i]) stamps[i].textContent='Completed '+fmt(at);
+      if(t) t.textContent='Done';
+      if(stamps[i]) stamps[i].textContent='✓ Completed '+fmt(at);
     }else{
       st.classList.remove('is-done');
-      if(btn) btn.innerHTML='✓ Mark this step done';
+      if(t) t.textContent='Mark as done';
       if(stamps[i]) stamps[i].textContent='';
     }
   }
