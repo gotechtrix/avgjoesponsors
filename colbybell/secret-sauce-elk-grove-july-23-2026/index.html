@@ -1000,6 +1000,10 @@ If you can make it, grab your seat here:
     document.querySelectorAll('.gallery a').forEach(function(a){
       a.addEventListener('click',function(e){e.preventDefault();open(a.getAttribute('href'));});
     });
+    document.querySelectorAll('.sponsor-card img.headshot').forEach(function(img){
+      img.style.cursor='zoom-in';
+      img.addEventListener('click',function(){open(img.getAttribute('src'));});
+    });
   })();
   </script>
 <script>
