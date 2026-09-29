@@ -6,7 +6,7 @@
 <title>The Secret Sauce · Folsom · Partner Marketing Toolkit · The Average Joe's MBA</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
-<meta name="description" content="Partner marketing toolkit for The Secret Sauce by The Average Joe's MBA. Tuesday, November 17, 2026, 10:00 AM, Outlet Coworking, Folsom, CA. Copy ready-to-post captions.">
+<meta name="description" content="Partner marketing toolkit for The Secret Sauce by The Average Joe's MBA. Tuesday, November 17, 2026, 10:00 AM, Outlet Coworking, Folsom, CA. Download the poster and copy ready-to-post captions.">
 <meta property="og:title" content="The Secret Sauce · Folsom · Partner Marketing Toolkit">
 <meta property="og:description" content="Simple, low-cost marketing steps to generate leads. Tuesday, November 17, 2026 in Folsom, CA.">
 <meta property="og:type" content="website">
@@ -150,6 +150,7 @@
     </div>
     <a class="hero-cta" href="https://luma.com/nhjt76mo" target="_blank" rel="noopener">🎟️ Reserve your seat</a>
     <div class="quicknav">
+      <a href="#posters">🖼️ Download poster</a>
       <a href="#captions">✍️ Copy captions</a>
       <a href="#about">ℹ️ Event details</a>
     </div>
@@ -162,9 +163,28 @@
     <span class="ico">🤝</span>
     <div>
       <h3>How to use this kit</h3>
-      <p>Pick a caption below, tap Copy, and post it to your socials or send it in a text or DM. Every caption links to the Luma registration page. Feel free to tag The Average Joe's MBA and JR Galicha (Ignite LG). Posters are coming soon.</p>
+      <p>Grab the poster, then pick a caption below and tap Copy, and post it to your socials or send it in a text or DM. Every caption links to the Luma registration page. Feel free to tag The Average Joe's MBA and JR Galicha (Ignite LG).</p>
     </div>
   </div>
+
+  <section class="section" id="posters">
+    <div class="section-head"><span class="num">🖼️</span><h2>Grab the poster</h2></div>
+    <p class="section-sub">Ready to post. Tap the poster to enlarge and save, or use the buttons.</p>
+    <div class="posters" style="grid-template-columns:minmax(240px,420px);justify-content:center">
+      <div class="poster">
+        <a class="pimg"><img src="secret-sauce-folsom-november-17-2026-poster.webp" alt="The Secret Sauce poster, Tuesday, November 17, 2026, Folsom, CA, sponsored by JR Galicha (Ignite LG)" onerror="this.style.display='none';this.parentNode.nextElementSibling.style.display='flex'"></a>
+        <div class="poster-ph">Poster image is uploading. It will appear here once it is added.</div>
+        <div class="pmeta">
+          <h3>The Secret Sauce · Folsom</h3>
+          <p>Full event poster · 4:5 portrait · feed and print</p>
+          <div class="prow">
+            <button class="btn btn-copy" onclick="downloadPoster(this,'secret-sauce-folsom-november-17-2026-poster.webp')">⬇️ Download</button>
+            <button class="btn btn-ghost" onclick="copyPoster(this,'secret-sauce-folsom-november-17-2026-poster.webp')">📋 Copy image</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section" id="sponsor">
     <div class="section-head"><span class="num">⭐</span><h2>Our sponsor</h2></div>
@@ -329,6 +349,11 @@ Venue: 1180 Iron Point Rd, Folsom, CA 95630.</div>
 
 <div class="toast" id="toast">Copied!</div>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lbImg" src="" alt="Enlarged poster">
+  <a class="lb-download" id="lbDownload" href="" download onclick="event.stopPropagation()">⬇️ Download</a>
+</div>
+
 <script>
   function showToast(msg){
     var t=document.getElementById('toast');
@@ -357,6 +382,58 @@ Venue: 1180 Iron Point Rd, Folsom, CA 95630.</div>
   }
   function copyEl(id){ rawCopy(getText(id)).then(function(){showToast('Caption copied. Now paste and post.');}); }
 
-  </script>
+  function downloadPoster(btn,url){
+    showToast('Preparing download…');
+    fetch(url,{mode:'cors'}).then(function(r){return r.blob()}).then(function(blob){
+      var u=URL.createObjectURL(blob);
+      var a=document.createElement('a'); a.href=u; a.download=url;
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(u);
+      showToast('Poster downloaded');
+    }).catch(function(){ window.open(url,'_blank'); showToast('Opened image. Press and hold to save.'); });
+  }
+  function copyPoster(btn,url){
+    showToast('Copying image…');
+    fetch(url,{mode:'cors'}).then(function(r){return r.blob()}).then(function(blob){
+      if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+        var img=new Image(); img.crossOrigin='anonymous';
+        img.onload=function(){
+          var c=document.createElement('canvas'); c.width=img.naturalWidth; c.height=img.naturalHeight;
+          c.getContext('2d').drawImage(img,0,0);
+          c.toBlob(function(png){
+            navigator.clipboard.write([new ClipboardItem({'image/png':png})]).then(function(){showToast('Image copied to clipboard');})
+            .catch(function(){showToast('Copy not supported. Use Download instead.');});
+          },'image/png');
+        };
+        img.onerror=function(){showToast('Copy not supported. Use Download instead.');};
+        img.src=URL.createObjectURL(blob);
+      }else{ showToast('Copy not supported here. Use Download instead.'); }
+    }).catch(function(){showToast('Copy blocked. Use Download instead.');});
+  }
+  var POSTERS=['secret-sauce-folsom-november-17-2026-poster.webp'];
+  function downloadAllPosters(){
+    showToast('Downloading all posters…');
+    POSTERS.forEach(function(src,i){
+      setTimeout(function(){
+        var a=document.createElement('a'); a.href=src; a.download=src;
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i*450);
+    });
+  }
+
+  // lightbox
+  (function(){
+    function open(src){
+      document.getElementById('lbImg').src=src;
+      var dl=document.getElementById('lbDownload'); dl.href=src; dl.setAttribute('download','');
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    window.closeLightbox=function(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; };
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')window.closeLightbox();});
+    document.querySelectorAll('.poster .pimg img').forEach(function(img){
+      img.addEventListener('click',function(){open(img.getAttribute('src'));});
+    });
+  })();
+</script>
 </body>
 </html>
