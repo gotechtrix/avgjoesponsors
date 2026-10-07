@@ -168,9 +168,9 @@
   </div>
 
   <section class="section" id="posters">
-    <div class="section-head"><span class="num">🖼️</span><h2>Grab the poster</h2></div>
-    <p class="section-sub">Ready to post. Tap the poster to enlarge and save, or use the buttons.</p>
-    <div class="posters" style="grid-template-columns:minmax(240px,420px);justify-content:center">
+    <div class="section-head"><span class="num">🖼️</span><h2>Grab a poster</h2></div>
+    <p class="section-sub">Ready to post. Tap a poster to enlarge and save, or use the buttons.</p>
+    <div class="posters" style="grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center">
       <div class="poster">
         <a class="pimg"><img src="secret-sauce-folsom-november-17-2026-poster.webp" alt="The Secret Sauce poster, Tuesday, November 17, 2026, Folsom, CA, sponsored by JR Galicha (Ignite LG)" onerror="this.style.display='none';this.parentNode.nextElementSibling.style.display='flex'"></a>
         <div class="poster-ph">Poster image is uploading. It will appear here once it is added.</div>
@@ -180,6 +180,18 @@
           <div class="prow">
             <button class="btn btn-copy" onclick="downloadPoster(this,'secret-sauce-folsom-november-17-2026-poster.webp')">⬇️ Download</button>
             <button class="btn btn-ghost" onclick="copyPoster(this,'secret-sauce-folsom-november-17-2026-poster.webp')">📋 Copy image</button>
+          </div>
+        </div>
+      </div>
+      <div class="poster">
+        <a class="pimg"><img src="secret-sauce-folsom-november-17-2026-poster-2.jpg" alt="The Secret Sauce poster, Tuesday, November 17, 2026, Folsom, CA, sponsored by Emily Coviello and Terrance Fields" onerror="this.style.display='none';this.parentNode.nextElementSibling.style.display='flex'"></a>
+        <div class="poster-ph">Poster image is uploading. It will appear here once it is added.</div>
+        <div class="pmeta">
+          <h3>The Secret Sauce · Folsom</h3>
+          <p>Full event poster · 4:5 portrait · feed and print</p>
+          <div class="prow">
+            <button class="btn btn-copy" onclick="downloadPoster(this,'secret-sauce-folsom-november-17-2026-poster-2.jpg')">⬇️ Download</button>
+            <button class="btn btn-ghost" onclick="copyPoster(this,'secret-sauce-folsom-november-17-2026-poster-2.jpg')">📋 Copy image</button>
           </div>
         </div>
       </div>
@@ -409,7 +421,7 @@ Venue: 1180 Iron Point Rd, Folsom, CA 95630.</div>
       }else{ showToast('Copy not supported here. Use Download instead.'); }
     }).catch(function(){showToast('Copy blocked. Use Download instead.');});
   }
-  var POSTERS=['secret-sauce-folsom-november-17-2026-poster.webp'];
+  var POSTERS=['secret-sauce-folsom-november-17-2026-poster.webp','secret-sauce-folsom-november-17-2026-poster-2.jpg'];
   function downloadAllPosters(){
     showToast('Downloading all posters…');
     POSTERS.forEach(function(src,i){
